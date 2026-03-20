@@ -22,6 +22,19 @@
   --dekstop: 1200px;
 }
 
+.page-banner {
+  background-color: var(--primary);
+  position: relative;
+  z-index: 0;
+  margin: 0;
+
+  h1, p {
+    color: var(--muted);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+}
 /* fonts */
 
 .text-center {
@@ -124,11 +137,19 @@ button:active {
   padding:4rem 5vw;
 }
 
+.container-narrow {
+  padding: 1rem 5vw;
+}
+
 @media (min-width: 768px) {
 .container{
   width: 100%;
   margin:0 0 4rem 0;
   padding:4rem 10vw;
+}
+
+.container-narrow {
+  padding: 1rem 10vw;
 }
 }
 
@@ -137,6 +158,10 @@ button:active {
   width: 100%;
   margin:0 0 4rem 0;
   padding:4rem 20vw;
+}
+
+.container-narrow {
+  padding: 1rem 20vw;
 }
 }
 
