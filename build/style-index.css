@@ -131,6 +131,15 @@ button:active {
   transform: translateY(4px);
 }
 
+.breadcrumb {
+  color: var(--primary-light);
+  font-size: smaller;
+  text-align: center;
+  a {
+    color: var(--accent2);
+  }
+}
+
 .container{
   width: 100%;
   margin:0 0 4rem 0;

@@ -19,3 +19,18 @@ function versatel_features() {
 }
 
 add_action('after_setup_theme', 'versatel_features');
+
+function create_team_member_cpt() {
+    register_post_type('team_member', array(
+        'labels' => array(
+            'name' => 'Team Members',
+            'singular_name' => 'Team Member'
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-groups',
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'show_in_rest' => true
+    ));
+}
+add_action('init', 'create_team_member_cpt');
