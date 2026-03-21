@@ -20,6 +20,8 @@ function versatel_features() {
 
 add_action('after_setup_theme', 'versatel_features');
 
+// Team Member Custom Post Type
+
 function create_team_member_cpt() {
     register_post_type('team_member', array(
         'labels' => array(
@@ -34,3 +36,20 @@ function create_team_member_cpt() {
     ));
 }
 add_action('init', 'create_team_member_cpt');
+
+// Change "Add title" to "Add full name" in WP Editor for Team Member CPT
+
+function change_team_member_title_placeholder($title, $post) {
+    if ($post->post_type == 'team_member') {
+        $title = 'Add full name';
+    }
+    return $title;
+}
+add_filter('enter_title_here', 'change_team_member_title_placeholder', 10, 2);
+
+// Remove default editor from Team Member CPT (Needed to replace full bio w/ WYSIWYG Editor in ACF)
+
+function remove_editor_from_team_member() {
+    remove_post_type_support('team_member', 'editor');
+}
+add_action('init', 'remove_editor_from_team_member');
