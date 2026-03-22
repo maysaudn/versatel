@@ -48,5 +48,7 @@
     <div class="copyright">
         <p>Copyright © 2025 VersaTel Solutions | Website designed by Nebal Maysaud</p>
     </div>
+    <!-- Load scripts -->
+    <?php wp_footer(); ?>
 </footer>
 </html>

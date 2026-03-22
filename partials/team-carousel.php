@@ -19,8 +19,15 @@ $team_query = new WP_Query($args);
         $title = get_field('job_title');
         $image = get_field('headshot');
         $image_url = esc_url($image['url']);
+        $email = get_field('contact_email');
+        $bio = wp_strip_all_tags(get_field('full_bio'));
     ?>
-        <div class="card">
+        <div class="card" 
+        data-name="<?php echo esc_attr(get_the_title()); ?>"
+        data-title="<?php echo esc_attr($title); ?>"
+        data-bio="<?php echo esc_attr($bio); ?>"
+        data-email="<?php echo esc_attr($email); ?>"
+        data-image="<?php echo esc_url($image_url); ?>">
             <img class="headshot" src="<?php echo $image_url ?>">
             <h3><?php echo get_the_title(); ?></h3>
             <p class="role"><?php echo $title ?></p>
@@ -32,6 +39,21 @@ $team_query = new WP_Query($args);
     ?>
     </div>
 </section>
+
+<div id="team-modal" class="team-modal container">
+  <div class="team-modal-content">
+    <span class="team-modal-close">&times;</span>
+
+    <img id="modal-image" class="headshot" src="" alt="">
+    <div class="modal-text">
+    <h2 id="modal-name"></h2>
+    <p id="modal-title"></p>
+    <a id="modal-email" href=""></a>
+    <p id="modal-bio"></p>
+    </div>
+
+  </div>
+</div>
 
 <?php /*
 <?php if ($team_query->have_posts()) :  ?>

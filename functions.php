@@ -54,34 +54,14 @@ function remove_editor_from_team_member() {
 }
 add_action('init', 'remove_editor_from_team_member');
 
-// Add Swiper to Team Carousel
-function enqueue_team_carousel_assets() {
-
-    // Swiper CSS
-    wp_enqueue_style(
-        'swiper-css',
-        'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css',
-        array(),
-        null
-    );
-
-    // Swiper JS
+// Team Modal
+function enqueue_team_modal_script() {
     wp_enqueue_script(
-        'swiper-js',
-        'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js',
-        array(),
-        null,
-        true
-    );
-
-    // Your init script
-    wp_enqueue_script(
-        'team-carousel-init',
-        get_template_directory_uri() . '/js/team-carousel.js',
-        array('swiper-js'),
-        '1.0.0',
+        'team-modal-js',
+        get_template_directory_uri() . '/js/team-modal.js', 
+        [],
+        time(), // forces no caching, for debugging, replace to null later
         true
     );
 }
-
-add_action('wp_enqueue_scripts', 'enqueue_team_carousel_assets');
+add_action('wp_enqueue_scripts', 'enqueue_team_modal_script');
