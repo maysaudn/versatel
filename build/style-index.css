@@ -166,12 +166,22 @@ button:active {
   .container{
   width: 100%;
   margin:0 0 4rem 0;
-  padding:4rem 20vw;
+  padding:4rem 15vw;
 }
 
 .container-narrow {
   padding: 1rem 20vw;
+  margin: 0;
 }
+}
+
+.team-carousel {
+  padding: 0;
+}
+
+.headshot {
+  aspect-ratio: 1 / 1; /* This makes the height equal to the width */
+  object-fit: cover; /* Optional: ensures the image covers the entire area without stretching or distortion, cropping as needed */
 }
 
 /* NAVBAR */

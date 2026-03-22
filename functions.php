@@ -79,8 +79,9 @@ function enqueue_team_carousel_assets() {
         'team-carousel-init',
         get_template_directory_uri() . '/js/team-carousel.js',
         array('swiper-js'),
-        null,
+        '1.0.0',
         true
     );
 }
+
 add_action('wp_enqueue_scripts', 'enqueue_team_carousel_assets');
