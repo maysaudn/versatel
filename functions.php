@@ -60,7 +60,7 @@ function enqueue_team_carousel_assets() {
     // Swiper CSS
     wp_enqueue_style(
         'swiper-css',
-        'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css',
+        'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css',
         array(),
         null
     );
@@ -68,7 +68,7 @@ function enqueue_team_carousel_assets() {
     // Swiper JS
     wp_enqueue_script(
         'swiper-js',
-        'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js',
+        'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js',
         array(),
         null,
         true
@@ -82,5 +82,9 @@ function enqueue_team_carousel_assets() {
         null,
         true
     );
+
+    // Debug
+    error_log('Enqueue function is running');
 }
+
 add_action('wp_enqueue_scripts', 'enqueue_team_carousel_assets');

@@ -13,3 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+console.log('Swiper init loaded');
+
+console.log('Team carousel JS loaded');
