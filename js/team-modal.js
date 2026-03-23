@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalImage = document.getElementById("modal-image");
   
     const closeBtn = document.querySelector(".team-modal-close");
+
+    function closeModal() {
+      modal.style.display = "none";
+      document.body.classList.remove("modal-open");
+    };
   
     cards.forEach(card => {
       card.addEventListener("click", function () {
@@ -24,14 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      document.body.classList.remove("modal-open");
-    });
+    closeBtn.addEventListener("click", closeModal);
   
     window.addEventListener("click", (e) => {
       if (e.target === modal) {
-        modal.style.display = "none";
+        closeModal();
       }
     });
 

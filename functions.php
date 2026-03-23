@@ -1,5 +1,33 @@
 <?php 
+function enqueue_swiper_assets() {
+    // Swiper CSS
+    wp_enqueue_style(
+        'swiper-css',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+        [],
+        null
+    );
 
+    // Swiper JS
+    wp_enqueue_script(
+        'swiper-js',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+        [],
+        null,
+        true
+    );
+
+    // Swiper Initializer
+    wp_enqueue_script(
+        'team-swiper',
+        get_template_directory_uri() . '/js/team-swiper.js',
+        [],
+        time(), // forces no caching, remember to replace with null later
+        true
+    );
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
 function versatel_files() {
     wp_enqueue_script('main-versatel-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true); // array can be null if not using jquery
     wp_enqueue_style('versatel_main_styles', get_theme_file_uri('/build/style-index.css'));
@@ -65,3 +93,4 @@ function enqueue_team_modal_script() {
     );
 }
 add_action('wp_enqueue_scripts', 'enqueue_team_modal_script');
+
