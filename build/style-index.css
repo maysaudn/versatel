@@ -202,16 +202,18 @@ button:active {
   background-color: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
+}
+
+.team-modal {
+  padding: 1rem;
+  width: 100vw;
 }
 
 .team-modal-content {
   background: var(--muted);
   border-radius: var(--card-radius);
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 5vw;
-  padding: 2rem;
+  max-width: 250px;
   box-shadow: var(--box-shadow);
   display: grid;
   grid-template-columns: 1fr;
@@ -219,12 +221,37 @@ button:active {
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
+  margin: 0;
+  width: 100%;
+  padding: 1.5rem;
 } 
 
+@media (min-width: 400px) {
+  .team-modal-content {
+    max-width: 350px;
+  }
+}
+
 @media (min-width: 768px) {
+  .team-modal {
+    padding: 2rem 0;
+  }
+
+  .team-modal-content {
+    max-width: 650px;
+  }
+
   .team-modal-content {
     grid-template-columns: 250px 1fr;
     align-items: start;
+    margin: 0 5vw;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .team-modal-content {
+    max-width: var(--max-width);
   }
 }
 .modal-text {
@@ -234,7 +261,7 @@ button:active {
   h2 p a {
     margin: 0;
     text-align: left;
-  }
+  };
 }
 
 @media (min-width: 768px) {
@@ -272,6 +299,8 @@ body.modal-open {
 #modal-name {
   margin: 0;
   text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 #modal-title {
@@ -280,11 +309,15 @@ body.modal-open {
   letter-spacing: 0.05em;
   color: #666;
   margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 #modal-bio {
   line-height: 1.4;
   font-size: smaller;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 #modal-email {
@@ -292,6 +325,7 @@ body.modal-open {
   margin: 0;
   color: var(--accent2);
   text-decoration: none;
+  word-break: break-all;
 }
 
 .headshot {
