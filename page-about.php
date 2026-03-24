@@ -1,46 +1,54 @@
 <?php
+/*
+Template Name: About Page
+*/
+get_header(); ?>
 
-    get_header();
+<?php $team_intro = get_field('team_intro');?>
 
-    while(have_posts()) {
-        the_post(); ?>
-
-    <section class="page-banner">
-    <div class="container container-narrow">
-      <h1><?php the_title(); ?></h1>
-      <?php 
-      
-      if ( has_post_parent() ) {
-        $parentId = wp_get_post_parent_id(get_the_ID());
-        $parentTitle = get_the_title($parentId);
-        $parentLink = get_permalink($parentId); ?> 
-        <div class="breadcrumb"> Back to <a href="<?php echo $parentLink ?>"><?php echo $parentTitle; ?></a></p> 
-        <?php
-      }
-      
-      ?>
-    </div>
-    </section>
+<!-- PAGE BANNER -->
+<?php get_template_part( 'template-parts/page-banner' ); ?>
 
 
-<!-- Main Content --> 
-<section class="container page-section generic-content">
+<!-- HERO -->
+<?php 
+$hero_args = array(
+  'image' => get_the_post_thumbnail_url( get_the_ID(), 'full' ),
+  'text' => get_field('hero_text')
+);
+?>
+
+<?php get_template_part('template-parts/hero', null, $hero_args); ?>
+
+<!-- ABOUT CONTENT -->
+<section class="about-content container">
   <?php the_content(); ?>
 </section>
 
-<!-- Team Section -->
-<section class="team">
-        <div class="container">
-            <h2>Our Team</h2>
+<!-- TEAM SECTION -->
+<section class="team-section container">
+  <h2>Meet Our Team</h2>
 
-            <?php get_template_part('partials/team-carousel'); ?>
+  <?php if ($team_intro): ?>
+    <div class="team-intro">
+      <?php echo wp_kses_post($team_intro); ?>
+    </div>
+  <?php endif; ?>
 
-        </div>
-    </section>
+  <?php get_template_part('template-parts/team-carousel'); ?>
+</section>
 
+<!-- CTA -->
+<?php get_template_part(
+  'template-parts/cta',
+  null,
+  [
+    'heading' => get_field('cta_heading'),
+    'text' => get_field('cta_text'),
+    'button_text' => get_field('cta_button_text'),
+    'button_link' => get_field('cta_button_link'),
+  ]
+); ?>
 
-<?php 
-  }
-    get_footer();
-
-?>
+<!-- FOOTER -->
+<?php get_footer(); ?>

@@ -746,6 +746,11 @@ display: none
 
 
 /* Team */
+
+.center {
+  text-align: center;
+}
+
 .team .center {
   text-align:center;
   max-width:800px;
