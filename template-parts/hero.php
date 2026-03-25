@@ -9,7 +9,8 @@ $hero_text = !empty($args['text'])
 ?>
 
 <section class="hero" style="background-image: url('<?php echo esc_url($hero_image_url); ?>');">
-  <div class="overlay">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
     <h1 class="center"><?php echo esc_html($hero_text); ?></h1>
   </div>
 </section>

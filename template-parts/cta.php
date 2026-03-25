@@ -8,12 +8,12 @@ $cta_button_link = $args['button_link'] ?? get_permalink(get_page_by_path('conta
 ?>
 
 <section class="cta-section">
-  <div class="container">
+  <div class="container center no-margin">
     <h2 class="center"><?php echo esc_html($cta_heading); ?></h2>
     <p class="center"><?php echo esc_html($cta_text); ?></p>
 
-    <a href="<?php echo esc_url($cta_button_link); ?>" class="cta-button">
+    <button href="<?php echo esc_url($cta_button_link); ?>" class="cta-button button-gold">
       <?php echo esc_html($cta_button_text); ?>
-    </a>
+    </button>
   </div>
 </section>

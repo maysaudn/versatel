@@ -6,8 +6,8 @@ get_header(); ?>
 
 <?php $team_intro = get_field('team_intro');?>
 
-<!-- PAGE BANNER -->
-<?php get_template_part( 'template-parts/page-banner' ); ?>
+<!-- PAGE BANNER (DO NOT DISPLAY, SINCE THERE IS ALREADY A HERO-->
+<?php /* get_template_part( 'template-parts/page-banner' ); */ ?>
 
 
 <!-- HERO -->
@@ -21,12 +21,12 @@ $hero_args = array(
 <?php get_template_part('template-parts/hero', null, $hero_args); ?>
 
 <!-- ABOUT CONTENT -->
-<section class="about-content container">
+<section class="about-content container center">
   <?php the_content(); ?>
 </section>
 
 <!-- TEAM SECTION -->
-<section class="team-section container">
+<section class="team-section container center">
   <h2>Meet Our Team</h2>
 
   <?php if ($team_intro): ?>

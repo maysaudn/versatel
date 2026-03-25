@@ -117,6 +117,11 @@ button{
 
 }
 
+.button-gold {
+  color: var(--primary);
+  background-color: var(--accent2);
+}
+
 button:hover{
   background-color:var(--accent2);
   border-style:solid;
@@ -124,6 +129,12 @@ button:hover{
   color: var(--primary);
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button-gold:hover {
+background-color: var(--primary);
+color: var(--primary-light);
+border-color: var(--accent2);
 }
 
 button:active {
@@ -173,6 +184,16 @@ button:active {
   padding: 1rem 20vw;
   margin: 0;
 }
+}
+
+.cta-section {
+  background-color: var(--primary);
+  color: var(--primary-light);
+  margin: 0;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 .team-carousel {
@@ -549,9 +570,6 @@ body.modal-open {
 
 
 /* HERO */
-
-
-
 
 .hero{
   position:relative;
