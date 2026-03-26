@@ -94,3 +94,6 @@ function enqueue_team_modal_script() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_team_modal_script');
 
+// Require Custom ACF Fields
+require_once get_template_directory() . '/inc/acf-fields.php';
+
