@@ -39,16 +39,19 @@ $hero_args = array(
 </section>
 
 <!-- CTA -->
-<?php get_template_part(
-  'template-parts/cta',
-  null,
-  [
-    'heading' => get_field('cta_heading'),
-    'text' => get_field('cta_text'),
-    'button_text' => get_field('cta_button_text'),
-    'button_link' => get_field('cta_button_link'),
-  ]
-); ?>
+
+<?php 
+
+$cta = get_field('cta');
+
+get_template_part('template-parts/cta', null, [
+  'heading' => $cta['heading'] ?? '',
+  'text' => $cta['text'] ?? '',
+  'button_text' => $cta['button_text'] ?? '',
+  'button_link' => $cta['button_link'] ?? '',
+]);
+
+?>
 
 <!-- FOOTER -->
 <?php get_footer(); ?>
