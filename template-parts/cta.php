@@ -19,12 +19,12 @@ $cta_button_link = !empty($args['button_link'])
 ?>
 
 <section class="cta-section">
-  <div class="container">
-    <h2><?php echo esc_html($cta_heading); ?></h2>
-    <p><?php echo esc_html($cta_text); ?></p>
+  <div class="container center no-margin">
+    <h2 class="center"><?php echo esc_html($cta_heading); ?></h2>
+    <p class="center"><?php echo esc_html($cta_text); ?></p>
 
-    <a href="<?php echo esc_url($cta_button_link); ?>" class="cta-button">
+    <button href="<?php echo esc_url($cta_button_link); ?>" class="cta-button button-gold">
       <?php echo esc_html($cta_button_text); ?>
-    </a>
+    </button>
   </div>
 </section>
