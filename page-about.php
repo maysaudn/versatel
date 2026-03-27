@@ -6,19 +6,23 @@ get_header(); ?>
 
 <?php $team_intro = get_field('team_intro');?>
 
-<!-- PAGE BANNER (DO NOT DISPLAY, SINCE THERE IS ALREADY A HERO-->
-<?php /* get_template_part( 'template-parts/page-banner' ); */ ?>
-
-
-<!-- HERO -->
+<!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
 <?php 
-$hero_args = array(
-  'image' => get_the_post_thumbnail_url( get_the_ID(), 'full' ),
-  'text' => get_field('hero_text')
-);
+
+if (!empty(get_field('hero_image')['url'])) {
+  $hero_args = array(
+    'image' => get_field('hero_image')['url'],
+    'title' => get_field('hero_title'),
+    'subtitle' => get_field('hero_subtitle')
+  );
+
+  get_template_part('template-parts/hero', null, $hero_args); 
+} else {
+  get_template_part('template-parts/page-banner');
+}
 ?>
 
-<?php get_template_part('template-parts/hero', null, $hero_args); ?>
+
 
 <!-- ABOUT CONTENT -->
 <section class="about-content container center">
@@ -45,10 +49,10 @@ $hero_args = array(
 $cta = get_field('cta');
 
 get_template_part('template-parts/cta', null, [
-  'heading' => $cta['heading'] ?? '',
-  'text' => $cta['text'] ?? '',
-  'button_text' => $cta['button_text'] ?? '',
-  'button_link' => $cta['button_link'] ?? '',
+  'heading' => $cta['cta_heading'] ?? '',
+  'text' => $cta['cta_text'] ?? '',
+  'button' => $cta['cta_button'] ?? '',
+  'link' => $cta['cta_link'] ?? '',
 ]);
 
 ?>
