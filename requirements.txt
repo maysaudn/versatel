@@ -1,6 +1,6 @@
 UI Basics
 
-[]  The user should see a WordPress Admin Toolbar at the top of the web page when signed in
+[X]  The user should see a WordPress Admin Toolbar at the top of the web page when signed in
 
 REQUIRED PLUGINS
 
@@ -11,9 +11,9 @@ REQUIRED PLUGINS
 COPMONENTS
 
     HERO COMPONONET
-    []  Whenever a user upload an image as the main image for a page, the HERO COMPONENT should activate automatically
-    []  The User should see a custom 'Hero Text' ACF field
-    []  If the field is left blank, then the text that appears on the HERO COMPONENT defaults to the page title
+    [x]  Whenever a user upload an image as the main image for a page, the HERO COMPONENT should activate automatically
+    [x]  The User should see a custom 'Hero Text' ACF field
+    [x]  If the field is left blank, then the text that appears on the HERO COMPONENT defaults to the page title
 
     PAGE BANNER COMPONENT
     []  If the user DOES NOT upload a page image, then the PAGE BANNER COMPONENT appear by defaults

@@ -44,7 +44,7 @@ function nmca_get_cta_fields ($template = 'page-about.php') {
     'location' => array(
       'param' => 'page_template',
       'operator' => '==',
-      'value' => 'page-about.php',
+      'value' => $template,
     )
   );
   
@@ -52,13 +52,13 @@ function nmca_get_cta_fields ($template = 'page-about.php') {
 }
 
 // Create custom field group for hero section
-function nmca_get_hero_fields ($template = 'page-about.php') {
+function nmca_get_hero_fields () {
   $array = array(
-    'key' => 'group_hero_' . $template,
+    'key' => 'group_hero',
     'title' => 'hero',
     'fields' => array (
       array (
-      'key' => 'field_hero_image_' . $template,
+      'key' => 'field_hero_image',
       'label' => 'Hero Image',
       'name' => 'hero_image',
       'type' => 'image',
@@ -66,23 +66,23 @@ function nmca_get_hero_fields ($template = 'page-about.php') {
       ),
       // Hero title
       array (
-        'key' => 'field_hero_title_' . $template,
+        'key' => 'field_hero_title',
         'label' => 'Hero Title',
         'name' => 'hero_title',
         'type' => 'text'
       ),
       // Hero Subtitle
       array (
-        'key' => 'field_hero_subtitle_' . $template,
+        'key' => 'field_hero_subtitle',
         'label' => 'Hero Subtitle',
         'name' => 'hero_subtitle',
         'type' => 'text'
       )
     ),
     'location' => array (
-      'param' => 'page_template',
-      'operator' => '==',
-      'value' => 'page-about.php',
+      'param' => 'post_type',
+      'operator' => '!=',
+      'value' => 'attachment'
     )
   );
   return $array;
@@ -100,7 +100,7 @@ function nmca_add_acf_field_groups () {
 
   // Add Hero Fields
   acf_add_local_field_group(
-    nmca_get_hero_fields('page-about.php')
+    nmca_get_hero_fields()
   );
 }
 

@@ -9,9 +9,11 @@ get_header(); ?>
 <!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
 <?php 
 
-if (!empty(get_field('hero_image')['url'])) {
+$hero_image = get_field('hero_image');
+
+if (!empty($hero_image['url'])) {
   $hero_args = array(
-    'image' => get_field('hero_image')['url'],
+    'image' => $hero_image['url'],
     'title' => get_field('hero_title'),
     'subtitle' => get_field('hero_subtitle')
   );
