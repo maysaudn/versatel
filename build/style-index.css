@@ -782,6 +782,10 @@ display: none
   padding-top: var(--gap);
 } */
 
+.card-narrow {
+  width: 300px;
+}
+
 .card {
   background:#fff;
   border-radius:12px;
@@ -890,3 +894,37 @@ display: none
 
 
 /* Responsive */
+
+
+.contact-card {
+  max-width: 400px;
+  margin: 60px auto; /* centers horizontally + adds vertical space */
+  padding: 30px;
+  text-align: left;
+  background-color: var(--primary);
+  color: var(--muted);
+  border-radius: var(--card-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.contact-card span {
+  display: flex;              /* aligns icon + text */
+  align-items: center;
+  justify-content: left;    /* keeps everything centered */
+  gap: 10px;                  /* space between icon and text */
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.contact-card i {
+  font-size: 1.2rem;
+}
+
+.contact-card span:last-child {
+  margin-bottom: 0;        /* removes extra space at bottom */
+}
+
+#contact-container {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

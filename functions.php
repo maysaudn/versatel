@@ -97,3 +97,14 @@ add_action('wp_enqueue_scripts', 'enqueue_team_modal_script');
 // Require Custom ACF Fields
 require_once get_template_directory() . '/includes/acf/acf-fields.php';
 
+// Font Awesome
+
+function nmca_enqueue_fontawesome() {
+    wp_enqueue_style(
+      'font-awesome',
+      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+      array(),
+      null
+    );
+  }
+  add_action('wp_enqueue_scripts', 'nmca_enqueue_fontawesome');
