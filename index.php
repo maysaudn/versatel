@@ -65,26 +65,7 @@
         <h2 class="text-center">Our team is your team</h2>
         <p class="text-center">Our staff is the best in the business. We may be a little biased, but we aren’t biased about how dedicated and passionate they are, which makes them all pretty special. Meet our team, we think you’ll find them to be pretty special too.</p>
 
-        <div class="flex-container">
-            <div class="card">
-                <img src="<?php echo get_theme_file_uri('images\headshots\sevana-stone.png'); ?>" alt="Sevana Stone">
-                <h4>Sevana Stone</h4>
-                <p class="role">CEO</p>
-            </div>
-            <div class="card">
-                <img src="<?php echo get_theme_file_uri('images\headshots\cyndi-odom.png')?>" alt="Cindi Odom">
-                <h4>Cindi Odom</h4>
-                <p class="role">Operations Manager</p>
-            </div>
-            <div class="card">
-                <img src="<?php echo get_theme_file_uri('images\headshots\christyn-allard.png')?>" alt="Christyn Allard">
-                <h4>Christyn Allard</h4>
-                <p class="role">Accounts Manager</p>
-            </div>
-        </div>
-        <div class="container-button">
-            <button onclick="window.location.href='<?php echo site_url('/about'); ?>';" id="our-team">Meet our team</button>
-        </div>
+        <?php get_template_part('template-parts/team-carousel') ?>
 
     </section>
 
