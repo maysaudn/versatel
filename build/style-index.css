@@ -928,3 +928,30 @@ display: none
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
+.permalink-title {
+  color: var(--primary);
+  text-decoration: none;
+}
+.post-grid .flex-card {
+  background-color: var(--primary-light);
+}
+
+.post-grid .flex-item p {
+  color: var(--primary)
+}
+
+.post-grid .flex-card:hover {
+  background-color: var(--primary);
+  color: var(--primary-light);
+  .permalink-title {
+    border-color: var(--accent2);
+    border-radius: var(--card-radius);
+    background-color: var(--accent2);
+    box-shadow: var(--box-shadow);
+    padding: .5em;
+  }
+  .flex-item p {
+    color: var(--primary-light);
+  }
+}

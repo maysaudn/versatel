@@ -1,13 +1,11 @@
-<?php
+<?php get_header(); ?>
 
-    get_header();
-
-    while(have_posts()) {
-        the_post(); ?>
-        <h2><?php the_title(); ?></h2>
+<?php while(have_posts()) {
+    the_post();
+    get_template_part('template-parts/get-hero-or-banner'); ?>
+    <div class="container">
         <?php the_content(); ?>
-    <?php }
+    </div> <?php
+ } ?>
 
-    get_footer();
-
-?>
+<?php get_footer(); ?>

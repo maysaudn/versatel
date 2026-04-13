@@ -1,6 +1,9 @@
 <section class="page-banner">
     <div class="container container-narrow">
-      <h1><?php the_title(); ?></h1>
+      <?php
+      $title = !empty($args['title']) ? $args['title'] : get_the_title(); ;
+      ?>
+      <h1><?php echo $title; ?></h1>
       <?php 
       
       if ( has_post_parent() ) {
