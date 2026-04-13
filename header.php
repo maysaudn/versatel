@@ -17,19 +17,17 @@
             </div>
 
             <nav>
-                <ul>
-                    <li>
-                        <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
-                    </li>
-                    <li><a href="<?php echo site_url(); ?>">Home</a></li>
-                    <li><a href="<?php echo site_url('/about'); ?>">About</a></li>
-                    <li><a href="<?php echo site_url('/services'); ?>">Services</a></li>
-                    <li><a href="<?php echo site_url('/resources'); ?>">Resources</a></li>
-                    <li><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+                <ul class="menu menuTransform">
+                    <li class="menuItem"><a href="<?php echo site_url(); ?>">Home</a></li>
+                    <li class="menuItem"><a href="<?php echo site_url('/about'); ?>">About</a></li>
+                    <li class="menuItem"><a href="<?php echo site_url('/resources'); ?>">Resources</a></li>
+                    <li class="menuItem"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+                    <li class="menuItem client-portal"><a class="client-portal-text" href=""><i class="fa fa-user"></i> Client Portal</a></li>
                 </ul>
 
-            <div class="hamburger" onclick="openMenu()">
-                <i class="fa fa-bars"></i>
+            <div class="hamburger">
+                <i class="menuIcon fa fa-bars"></i>
+                <i class="closeIcon fa fa-close"></i>
             </div>
 </nav>
 </header>

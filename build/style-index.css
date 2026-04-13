@@ -219,7 +219,7 @@ button:active {
 .team-modal {
   display: none;
   position: fixed;
-  z-index: 99999;
+  z-index: 998;
   top: 0;
   left: 0;
   width: 100%;
@@ -391,123 +391,7 @@ body.modal-open {
 
 /* NAVBAR */
 
-.navbar {
-  min-height: 95px;
-  margin: 0;
-  padding: 10px 10vw 0 15vw;
-  background-color: var(--primary);
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
 
-  .logo {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--gap);
-    margin: 0.8em 0;
-    align-items: center;
-    img {
-      width: 3.25rem;
-      margin: auto;
-    }
-    h2 {
-      padding: 0;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.5em;
-      text-align: justify;
-    }
-  }
-  ul {
-    display: none;
-  }
-  .hamburger {
-    cursor: pointer;
-    float: right;
-    display: flex;
-    font-size: 1.5rem;
-    color: #fff;
-    margin-left: var(--gap);
-  }
-
-  #navbar-logo:hover {
-    cursor: pointer;
-  }
-}
-
-@media (min-width: 992px) {
-.navbar {
-  min-height: 95px;
-  margin: 0;
-  padding: 10px 10vw 0 15vw;
-  background-color: var(--primary);
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-
-  .logo {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--gap);
-    margin: 0.8em 0;
-    img {
-      width: 2.5rem;
-    }
-    h2 {
-      padding: 0;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.5em;
-      text-align: justify;
-    }
-  }
-  ul {
-    display: contents;
-    list-style-type: none;
-    float: right;
-    margin-top: 1.4rem;
-    li {
-      float: left;
-      transition: 0.15s;
-      padding: 0 1.15em;
-      a {
-        display: block;
-        color: var(--muted);
-        text-align: center;
-        font-weight: var(--font-medium);
-        text-decoration: none;
-      }
-      /* a.icon {display:none} */
-    }
-
-    li:hover {
-      cursor: pointer;
-      a:hover {color: var(--accent2)}
-      a:active {
-        border-bottom-style: solid;
-        border-bottom-color: var(--accent2);
-        border-width: 1px;
-        transform: translateY(4px)}
-    }
-  }
-  .hamburger {
-    display: none;
-  }
-
-  #navbar-logo:hover {
-    cursor: pointer;
-  }
-}
-}
 
 /* FOOTER */
 .site-footer {

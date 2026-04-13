@@ -22,12 +22,14 @@ function enqueue_swiper_assets() {
         'team-swiper',
         get_template_directory_uri() . '/js/team-swiper.js',
         [],
-        time(), // forces no caching, remember to replace with null later
+        null,
         true
     );
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
+
+// VERSATEL FILES
 function versatel_files() {
     wp_enqueue_script('main-versatel-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true); // array can be null if not using jquery
     wp_enqueue_style('versatel_main_styles', get_theme_file_uri('/build/style-index.css'));
@@ -42,6 +44,17 @@ function versatel_files() {
 
 add_action('wp_enqueue_scripts', 'versatel_files');
 
+// NAVBAR
+function nmca_enqueue_navbarMenu() {
+    wp_enqueue_style('style-navbar', get_theme_file_uri( '/build/style-navbar.css' ));
+    wp_enqueue_script(
+        'navbar-menu', get_template_directory_uri(  ) . '/js/navbar-menu.js', [], null, true
+    );
+}
+
+add_action('wp_enqueue_scripts', 'nmca_enqueue_navbarMenu');
+
+// VERSATEL FEATURES
 function versatel_features() {
     add_theme_support('title-tag');
 }
@@ -111,3 +124,4 @@ function nmca_enqueue_fontawesome() {
     );
   }
   add_action('wp_enqueue_scripts', 'nmca_enqueue_fontawesome');
+
