@@ -11,10 +11,10 @@ $banner_args = array(
 
 <section class="resources container">
   <?php if (have_posts()) : ?>
-    <div class="post-grid flex-container">
+    <div>
       <?php while (have_posts()) : the_post(); ?>
-        <article class="post-card flex-card">
-            <div class="flex-item">
+        <article>
+            <div>
             <h2><a class="permalink-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
           <p><?php the_excerpt(); ?></p>
             </div>

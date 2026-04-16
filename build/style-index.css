@@ -757,6 +757,12 @@ display: none
   color: var(--primary);
   text-decoration: none;
 }
+
+.permalink-title:hover {
+  color: var(--accent2);
+  cursor: pointer;
+}
+
 .post-grid .flex-card {
   background-color: var(--primary-light);
 }
