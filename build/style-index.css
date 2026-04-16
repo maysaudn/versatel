@@ -389,69 +389,9 @@ body.modal-open {
   object-fit: cover; /* Optional: ensures the image covers the entire area without stretching or distortion, cropping as needed */
 }
 
-/* NAVBAR */
+/* NAVBAR see style-navbar.css */
 
-
-
-/* FOOTER */
-.site-footer {
-  background-color: var(--primary);
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 50% auto auto;
-    gap: 5rem;
-  }
-  padding: 0 20vw 0 20vw;
-  margin: 0;
-  ul {
-    list-style-type: none;
-    padding: 0;
-    li {
-      text-align: left;
-      padding: 0;
-      margin: 0;
-        display: block;
-        color: var(--muted);
-        font-weight: var(--font-medium);
-        text-decoration: none;
-        font-size: .75em;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-
-    li a:hover {
-      cursor: pointer;
-      color: var(--accent2);
-    }
-
-    li a:active {
-      transform: translateY(4px)}
-    }
-
-  .footer-section h4{
-    text-align: center;
-    padding: 1rem;
-    border-bottom-style: solid;
-    border-bottom-width: .5px;
-    border-bottom-color: var(--primary-light);
-    color: var(--primary-light);
-    font-size: .8em;
-  }
-
-  #footer-contact-title{
-    text-align: left;
-    padding-left: 0;
-  }
-  .copyright {
-    font-size: 0.8em;
-    text-align: center;
-    color: var(--muted);
-    padding-bottom: 1rem;
-  }
-}
-
+/* FOOTER see style-footer.css */
 
 /* HERO */
 

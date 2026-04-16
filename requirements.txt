@@ -8,7 +8,7 @@ REQUIRED PLUGINS
 []  The user should see a message requiring ACF to be downloaded
 []  The user should be unable to disable the ACF plugin without deactivating the theme
 
-COPMONENTS
+COMPONENTS
 
     HERO COMPONONET
     [x]  Whenever a user upload an image as the main image for a page, the HERO COMPONENT should activate automatically
@@ -16,16 +16,27 @@ COPMONENTS
     [x]  If the field is left blank, then the text that appears on the HERO COMPONENT defaults to the page title
 
     PAGE BANNER COMPONENT
-    []  If the user DOES NOT upload a page image, then the PAGE BANNER COMPONENT appear by defaults
-    []  The component should have a title that matches the title of the page
-    []  If the page has a parent page, the component should have breadcrumbs under the title
+    [x]  If the user DOES NOT upload a page image, then the PAGE BANNER COMPONENT appear by default
+    [x]  The component should have a title that matches the title of the page
+    [x]  If the page has a parent page, the component should have breadcrumbs under the title
 
     CTA COMPONENT
-    []  The user should see a CTA COMPONENT on the bottom of the "ABOUT" and "SERVICES" page
-    []  The user should be able to edit all the text of the CTA component, including:
+    [x]  The user should see a CTA COMPONENT on the bottom of the "ABOUT" and "SERVICES" page
+    [x]  The user should be able to edit all the text of the CTA component, including:
         [] CTA Header
         [] CTA Text
         [] CTA Button
         [] CTA Link
-    []  There should be defaults for all the custom CTA fields
+    [x]  There should be defaults for all the custom CTA fields
 
+PAGES 
+    [X] ABOUT
+    [X] RESOURCES
+        [X] Learning Articles
+        [] BBSB Podcast
+    [X] CONTACT
+    [] CLIENT PORTAL
+
+FEATURES
+    [] CUSTOM MENU ABOUT SUB-PAGES: The user should be able to create new pages, and add them to the sub-menu for the about page
+    [] CUSTOM MENU: RESOURCES SUB-PAGES: The user should be able to create new pages and add them to the sub-menu for the Resources page.

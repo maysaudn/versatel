@@ -54,6 +54,14 @@ function nmca_enqueue_navbarMenu() {
 
 add_action('wp_enqueue_scripts', 'nmca_enqueue_navbarMenu');
 
+// FOOTER 
+
+function nmca_enqueue_footer() {
+    wp_enqueue_style( 'style-footer', get_theme_file_uri( '/build/style-footer.css' ) );
+}
+
+add_action('wp_enqueue_scripts', 'nmca_enqueue_footer');
+
 // VERSATEL FEATURES
 function versatel_features() {
     add_theme_support('title-tag');
@@ -114,7 +122,6 @@ require_once get_template_directory() . '/includes/acf/acf-fields.php';
 require_once get_template_directory() . '/includes/acf/acf-options.php';
 
 // Font Awesome
-
 function nmca_enqueue_fontawesome() {
     wp_enqueue_style(
       'font-awesome',
