@@ -35,7 +35,7 @@ PAGES
         [X] Learning Articles
         [] BBSB Podcast
     [X] CONTACT
-    [] CLIENT PORTAL
+    [X] CLIENT PORTAL
 
 FEATURES
     [] CUSTOM MENU ABOUT SUB-PAGES: The user should be able to create new pages, and add them to the sub-menu for the about page
