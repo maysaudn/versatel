@@ -42,9 +42,13 @@ function nmca_get_cta_fields ($template = 'page-about.php') {
               'default_value' => get_permalink(get_page_by_path('contact'))
           )),
     'location' => array(
-      'param' => 'page_template',
-      'operator' => '==',
-      'value' => $template,
+      array(
+        array(
+          'param' => 'page_template',
+          'operator' => '==',
+          'value' => $template,
+        )
+      )
     )
   );
   
@@ -79,10 +83,19 @@ function nmca_get_hero_fields () {
         'type' => 'text'
       )
     ),
-    'location' => array (
-      'param' => 'post_type',
-      'operator' => '!=',
-      'value' => 'attachment'
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '!=',
+          'value' => 'attachment'
+        ),
+        array(
+          'param' => 'post_type',
+          'operator' => '!=',
+          'value' => 'team_member'
+        ),
+      )
     )
   );
   return $array;

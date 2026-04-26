@@ -40,11 +40,42 @@ function nmca_get_cta_fields ($template = 'page-about.php') {
                 'type' => 'url',
                 'default_value' => get_permalink(get_page_by_path('contact'))
             )),
-        'location' => array (
+            'location' => array(
+
+                // Group 1: All non-page post types (except excluded ones)
+                array(
+                  array(
+                    'param' => 'post_type',
+                    'operator' => '!=',
+                    'value' => 'attachment'
+                  ),
+                  array(
+                    'param' => 'post_type',
+                    'operator' => '!=',
+                    'value' => 'team_member'
+                  ),
+                  array(
+                    'param' => 'post_type',
+                    'operator' => '!=',
+                    'value' => 'page'
+                  )
+                ),
+              
+                // Group 2: Only pages using page-about.php template
+                array(
+                  array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page'
+                  ),
+                  array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'page-about.php',
-        )
+                    'value' => 'page-about.php'
+                  )
+                )
+              
+              )
     );
     
     return $array;

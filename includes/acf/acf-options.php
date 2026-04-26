@@ -32,9 +32,13 @@ function nmca_get_global_fields() {
             )
         ),
         'location' => array(
-            'param' => 'options_page',
-            'operation' => '==',
-            'value' => 'site-settings'
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operation' => '==',
+                    'value' => 'site-settings'
+                )
+            )
         )
     );
     return $array;
