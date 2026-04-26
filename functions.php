@@ -75,7 +75,15 @@ function create_team_member_cpt() {
     register_post_type('team_member', array(
         'labels' => array(
             'name' => 'Team Members',
-            'singular_name' => 'Team Member'
+            'singular_name' => 'Team Member',
+            'add_new' => 'Add New Member',
+            'add_new_item' => 'Add New Member',
+            'edit_item' => 'Edit Team Member',
+            'view_item' => 'View Team Member',
+            'view_items' => 'View Team Members',
+            'search_items' => 'Search Team Members',
+            'not_found' => 'Team member not found',
+            'all_items' => 'All Team Members'
         ),
         'public' => true,
         'has_archive' => false,
@@ -90,7 +98,7 @@ add_action('init', 'create_team_member_cpt');
 
 function change_team_member_title_placeholder($title, $post) {
     if ($post->post_type == 'team_member') {
-        $title = 'Add full name';
+        $title = 'Full name';
     }
     return $title;
 }

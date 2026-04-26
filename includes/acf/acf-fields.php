@@ -3,55 +3,74 @@
 // Create custom field group for CTA component, one per page it may be on
 function nmca_get_cta_fields ($template = 'page-about.php') {
   $array = array(
-      'key' => 'group_cta_' . $template,
-      'title' => 'Call To Action',
-      'fields' => array(
-          // CTA HEADING
-          array(
-              'key' => 'field_cta_heading_' . $template,
-              'label' => 'CTA Heading',
-              'name' => 'cta_heading',
-              'type' => 'text',
-              'default_value' => 'Ready to learn more?'
-          ),
-
-          // CTA TEXT
-          array(
-              'key' => 'field_cta_text_' . $template,
-              'label' => 'CTA Text',
-              'name' => 'cta_text',
-              'type' => 'text',
-              'default_value' => 'Reach out today for a free consultation!'
-          ),
-
-          // CTA BUTTON
-          array(
-              'key' => 'field_cta_btn_' . $template,
-              'label' => 'CTA Button',
-              'name' => 'cta_button',
-              'type' => 'text',
-              'default_value' => 'Contact Us'
-          ),
-
-          // CTA LINK
-          array(
-              'key' => 'field_cta_link_' . $template,
-              'label' => 'CTA Link',
-              'name' => 'cta_link',
-              'type' => 'url',
-              'default_value' => get_permalink(get_page_by_path('contact'))
-          )),
-    'location' => array(
+    'key' => 'group_cta_' . $template,
+    'title' => 'Call To Action',
+    'fields' => array(
+      // CTA HEADING
       array(
+        'key' => 'field_cta_heading_' . $template,
+        'label' => 'CTA Heading',
+        'name' => 'cta_heading',
+        'type' => 'text',
+        'default_value' => 'Ready to learn more?'
+      ),
+
+      // CTA TEXT
+      array(
+        'key' => 'field_cta_text_' . $template,
+        'label' => 'CTA Text',
+        'name' => 'cta_text',
+        'type' => 'text',
+        'default_value' => 'Reach out today for a free consultation!'
+      ),
+
+      // CTA BUTTON
+      array(
+        'key' => 'field_cta_btn_' . $template,
+        'label' => 'CTA Button',
+        'name' => 'cta_button',
+        'type' => 'text',
+        'default_value' => 'Contact Us'
+      ),
+
+      // CTA LINK
+      array(
+        'key' => 'field_cta_link_' . $template,
+        'label' => 'CTA Link',
+        'name' => 'cta_link',
+        'type' => 'url',
+        'default_value' => get_permalink(get_page_by_path('contact'))
+      )
+    ),
+    'location' => array(
+      // Group 1: All post types except attachments and team members
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '!=',
+          'value' => 'attachment'
+        ),
+        array(
+          'param' => 'post_type',
+          'operator' => '!=',
+          'value' => 'team_member'
+        ),
+      ),
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'page'
+        ),
         array(
           'param' => 'page_template',
           'operator' => '==',
-          'value' => $template,
+          'value' => $template
         )
       )
     )
   );
-  
+
   return $array;
 }
 
