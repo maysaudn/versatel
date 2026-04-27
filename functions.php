@@ -33,8 +33,6 @@ add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
 function versatel_files() {
     wp_enqueue_script('main-versatel-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true); // array can be null if not using jquery
     wp_enqueue_style('versatel_main_styles', get_theme_file_uri('/build/style-index.css'));
-    // wp_enqueue_style('versatel_page_styles', get_theme_file_uri('/build/page-styles.css'));
-    // wp_enqueue_style('versatel_extra_styles', get_theme_file_uri('/build/extra-styles.css'));
     wp_enqueue_style('versatel_browser_styles', get_theme_file_uri('/build/index.css'));
     wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css');
     wp_enqueue_style('font-awesome-stylesheet', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -117,7 +115,7 @@ function enqueue_team_modal_script() {
         'team-modal-js',
         get_template_directory_uri() . '/js/team-modal.js', 
         [],
-        time(), // forces no caching, for debugging, replace to null later
+        null,
         true
     );
 }

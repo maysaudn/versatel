@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Dependency managers (you don’t seem to use them, but safe)
+node_modules/
+vendor/
+
+# Python (you have requirements.txt, just in case)
+__pycache__/
+*.pyc
+
+# Dev Clutter
+requirements.txt
+/extra-styles.css
