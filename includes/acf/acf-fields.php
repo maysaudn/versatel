@@ -78,28 +78,30 @@ function nmca_get_cta_fields ($template = 'page-about.php') {
 function nmca_get_hero_fields () {
   $array = array(
     'key' => 'group_hero',
-    'title' => 'hero',
+    'title' => 'Hero',
     'fields' => array (
       array (
       'key' => 'field_hero_image',
       'label' => 'Hero Image',
       'name' => 'hero_image',
       'type' => 'image',
-      'return_format' => 'array'
+      'return_format' => 'array',
+      'instructions' => 'Upload an image to trigger a "Hero" header, with a large image and customizable text. If you don\'t upload an image, then the default Header banner will appear.'
       ),
       // Hero title
       array (
         'key' => 'field_hero_title',
         'label' => 'Hero Title',
         'name' => 'hero_title',
-        'type' => 'text'
+        'type' => 'text',
+        'instructions' => 'This can be the title of your page or anything you want.'
       ),
       // Hero Subtitle
       array (
         'key' => 'field_hero_subtitle',
         'label' => 'Hero Subtitle',
         'name' => 'hero_subtitle',
-        'type' => 'text'
+        'type' => 'text',
       )
     ),
     'location' => array(

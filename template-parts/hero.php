@@ -1,7 +1,7 @@
 <?php
 $hero_image_url = !empty($args['image'])
   ? $args['image']
-  : get_template_directory_uri() . '/assets/default-hero.jpg';
+  : get_template_directory_uri() . '/images/default-hero.jpg';
 
 $hero_text = !empty($args['title'])
   ? $args['title']
