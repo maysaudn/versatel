@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".card");
+    const cards = document.querySelectorAll(".teamCard");
     const modal = document.getElementById("team-modal");
   
     const modalName = document.getElementById("modal-name");

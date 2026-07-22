@@ -26,7 +26,7 @@ $team_query = new WP_Query($args);
         ?>
 
         <div class="swiper-slide">
-          <div class="card"
+          <div class="card teamCard"
             data-name="<?php echo esc_attr(get_the_title()); ?>"
             data-title="<?php echo esc_attr($title); ?>"
             data-bio="<?php echo esc_attr($bio); ?>"

@@ -1,17 +1,6 @@
 <?php get_header(); ?>
 
-        <!-- <section class="hero" role="banner" aria-label="Hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content text-center">
-            <h1>Welcome to VersaTel Solutions</h1>
-            <p>We provide accounting, bookkeeping, payroll, website, and IT services focused on growth management to small and medium-sized businesses in the DC area and nationwide.</p>
-            <button onclick="window.location.href='<?php echo site_url('/contact'); ?>';">Reach Out</button>
-        </div>
-    </section> -->
-
-
-    
-    <!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
+<!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
 <?php 
 
 $hero_image = get_field('hero_image');
@@ -32,18 +21,12 @@ if (!empty($hero_image['url'])) {
 ?>
 
 
+<!-- INTRO -->
     <section class="who container">
         <h2 class="text-center">There’s a lot of business behind small business…</h2>
         <div class="who-grid">
             <div class="who-text">
-                <p>You started with a passion. It turned into a business. Now, both have turned into a job. Your company can’t scale until it can run on its own without you. Our Bookkeepers and Accountants are focused on growth management, providing the services you need in order to scale successfully. Your business is our business!</p>
-                <p>Reach out to us if you are looking for:</p>
-                <ul>
-                    <li>Full-charge bookeepers</li>
-                    <li>Payroll and account specialists</li>
-                    <li>Marketing and communications consultants</li>
-                    <li>Website and IT developers</li>
-                </ul>
+                <p>You’re making real decisions — hiring, pricing, whether to take on the next contract — on instinct, because the numbers aren’t telling you enough. You don’t need another bookkeeper. You need a financial partner who knows where you are, where you’re headed, and what your numbers need to do to get you there.</p>
             </div>
             <div class="who-image">
                 <img src="<?php echo get_theme_file_uri('images\headshots\sevana-stone.png'); ?>" alt="Sevana Stone">
@@ -52,37 +35,41 @@ if (!empty($hero_image['url'])) {
     </section>
 
 
-
+<!-- What we do -->
     <section class="features container">
         <div class="services text-center">
-            <h2>Services</h2>
-            <p>You started with a passion. It turned into a business. Now, both have turned into a job. Your company can’t scale until it can run on its own without you. Our Bookkeepers, Accountants, and Business Specialists are focused on growth management, providing the services you need in order to scale successfully. Your business is our business!</p>
+            <h2>What We Do</h2>
+            <p>We own your entire financial function — and then we do the part most firms skip: we tell you what the numbers mean.</p>
         </div>
         <div class="flex-container">
             <article class="card dark-border flex-item flex-card">
                 <i class="fa fa-calculator"></i>
                 <div class="flex-item-header text-center">
-                    <h3>Full-Charge Bookkeeping &amp; Accounting</h3>
+                    <h3>Financial Operations</h3>
                 </div>
-                    <p>Knowing your company’s financials are crucial to your growth, which is why our team and catalog of services grow with you to give you the support you need as you scale.</p>
+                    <p>Full-charge bookkeeping, payroll, accounts payable and receivable, reconciliations, and monthly financial statements that get explained, not just delivered. The foundation, running without drama.</p>
             </article>
             <article class="card flex-item flex-card">
                 <i class="fa fa-money"></i>
                 <div class="flex-item-header text-center">
-                    <h3>Payroll</h3>
+                    <h3>Financial Strategy</h3>
                 </div>
-                    <p>Whether you have 1 or 100 employees, payroll is important to your growth. Having a specialist on your team gives you that support and scales along with you!</p>
+                    <p>Cash flow forecasting, KPI dashboards, profit and margin analysis, and decision support for pricing, hiring, and growth — plus a partner in the room when you’re facing a sale, merger, or funding raise. The part most firms skip.</p>
             </article>
             <article class="card flex-item flex-card">
                 <i class="fa fa-laptop"></i>
                 <div class="flex-item-header text-center">
-                    <h3>Website &amp; IT Development</h3>
+                    <h3>Built for the Hard Stuff</h3>
                 </div>
-                    <p>All companies reach a point where they need either an update, or a full on overhaul to their technology and websites. Our Specialists will consult you on the best plans for your website, platforms, and software as you recalibrate your growth!</p>
+                    <p>We’re industry-agnostic, but we cut our teeth on the most complex books out there — government contractors (DCAA compliance, indirect rates), nonprofits, and trades. If we can handle those, yours are in good hands.</p>
             </article>
+        </div>
+        <div class="services text-center">
+        <p>Also available as add-ons: web and IT support, tax preparation, audit and nonprofit audit support, FAR/DCAA compliance, 1099 filing, timesheet management, and medical billing.</p>
         </div>
     </section>
 
+<!-- Our Team -->
     <section class="team container">
         <h2 class="text-center">Our team is your team</h2>
         <p class="text-center">Our staff is the best in the business. We may be a little biased, but we aren’t biased about how dedicated and passionate they are, which makes them all pretty special. Meet our team, we think you’ll find them to be pretty special too.</p>
@@ -91,49 +78,47 @@ if (!empty($hero_image['url'])) {
 
     </section>
 
+<!-- Testimonials -->
     <section class="testimonials container">
         <h4>Testimonials</h4>
         <h2>What our clients say</h2>
 
         <div class="flex-container">
             <blockquote class="flex-item card">
-                <p>"I really like their work, I guess now they have got a new lifetime customer. From now on, every construction project that I do will only be via their construction company."</p>
+                <p>“Exceptionally well run and staffed by top-notch providers. If you want a partner that’s honest, qualified, and actually fun to do business with, look no further.”</p>
                 <footer>
-                    <img src="https://staging.versatelsolutions.com/wp-content/uploads/2025/09/Albert-Flores.jpg" alt="">
-                    <div class="test-name">
-                        <strong>Maria Swartzki</strong>
-                        <span>Manager, R &amp; B Group</span>
+                        <p><strong>NAME</strong></p>
+                        <p><span>Paradigm Solutions</span></p>
                     </div>
                 </footer>
             </blockquote>
 
             <blockquote class="flex-item card">
-                <p>"I really like their work, I guess now they have got a new lifetime customer. From now on, every construction project that I do will only be via their construction company."</p>
+                <p>“My bookkeeper reconciles every month for me, which frees me up to spend more time building my business.”</p>
                 <footer>
-                    <img src="https://staging.versatelsolutions.com/wp-content/uploads/2025/09/Robert-Fox.jpg" alt="">
                     <div class="test-name">
-                        <strong>Teresa Henry</strong>
-                        <span>Manager, R &amp; B Group</span>
+                        <p><strong>Tracy Dombrowski</strong></p>
+                        <p><span>Title, business</span></p>
                     </div>
                 </footer>
             </blockquote>
 
             <blockquote class="flex-item card">
-                <p>"I really like their work, I guess now they have got a new lifetime customer. From now on, every construction project that I do will only be via their construction company."</p>
+                <p>“Extremely professional. They take the little things off my plate so I can concentrate on the big picture.”</p>
                 <footer>
-                    <img src="https://staging.versatelsolutions.com/wp-content/uploads/2025/09/Jessica-Alba.jpg" alt="">
                     <div class="test-name">
-                        <strong>Teresa Henry</strong>
-                        <span>Manager, R &amp; B Group</span>
+                        <p><strong>Kathryn Fox</strong></p>
+                        <p><span>Title, business</span></p>
                     </div>
         </div>
     </section>
 
+<!-- CTA -->
     <section class="cta container">
         <div class="cta-inner">
-            <h2>Expand your services (and your client list) with VersaTel Solutions</h2>
-            <p>Your client can't get to the next step with you without strong support and guidance. Let us help your client as your third-party option to give them the tools they need to get to the next step with you.</p>
-            <button onclick="window.location.href='<?php echo site_url('/contact'); ?>';" >Reach Out</button>
+            <h2>Your business is ready for this. So are we.</h2>
+            <p>The next step is a conversation, not a commitment. Thirty minutes where we get to know your business and you ask every question on your mind. From there, we’ll tell you honestly where we think you are and whether we’re the right fit.</p>
+            <button onclick="window.location.href='<?php echo site_url('/contact'); ?>';" >Book a Conversation</button>
         </div>
     </section>
 
