@@ -1,13 +1,35 @@
 <?php get_header(); ?>
 
-        <section class="hero" role="banner" aria-label="Hero">
+        <!-- <section class="hero" role="banner" aria-label="Hero">
         <div class="hero-overlay"></div>
         <div class="hero-content text-center">
             <h1>Welcome to VersaTel Solutions</h1>
             <p>We provide accounting, bookkeeping, payroll, website, and IT services focused on growth management to small and medium-sized businesses in the DC area and nationwide.</p>
             <button onclick="window.location.href='<?php echo site_url('/contact'); ?>';">Reach Out</button>
         </div>
-    </section>
+    </section> -->
+
+
+    
+    <!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
+<?php 
+
+$hero_image = get_field('hero_image');
+
+if (!empty($hero_image['url'])) {
+  $hero_args = array(
+    'image' => $hero_image['url'],
+    'title' => get_field('hero_title'),
+    'subtitle' => get_field('hero_subtitle'),
+    'button' => get_field('hero_button'),
+    'button_caption' => get_field('hero_button_caption')
+  );
+
+  get_template_part('template-parts/hero', null, $hero_args); 
+} else {
+  get_template_part('template-parts/page-banner');
+}
+?>
 
 
     <section class="who container">

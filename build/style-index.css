@@ -22,6 +22,12 @@
   --dekstop: 1200px;
 }
 
+.caption {
+  font-weight: var(--font-light);
+  font-size: smaller;
+  padding: .75em;
+}
+
 .page-banner {
   background-color: var(--primary);
   position: relative;

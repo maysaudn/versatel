@@ -101,7 +101,21 @@ function nmca_get_hero_fields () {
         'key' => 'field_hero_subtitle',
         'label' => 'Hero Subtitle',
         'name' => 'hero_subtitle',
+        'type' => 'textarea',
+      ),
+      // Hero button
+      array (
+        'key' => 'field_hero_button',
+        'label' => 'Hero Button',
+        'name' => 'hero_button',
         'type' => 'text',
+      ),
+      // Hero button caption
+      array (
+        'key' => 'field_hero_button_caption',
+        'label' => 'Hero Button Caption',
+        'name' => 'hero_button_caption',
+        'type' => 'text'
       )
     ),
     'location' => array(
