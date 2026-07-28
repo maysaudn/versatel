@@ -4,8 +4,27 @@
                 <h4 id="footer-contact-title">Contact Us</h4>
                 <navbar class="footer-menu">
                     <ul class="footer-contact">
-                        <li class="footer-item">###-###-####</li>
-                        <li class="footer-item">info@versatelsolutions.com</li>
+                        <!-- Phone Number -->
+                        <?php 
+                        $phone = get_field('company_phone', 'option');
+                        if ($phone) :                       
+                            $phone_href = preg_replace('/\D+/', '', $phone);                       
+                        ?>
+                            <li class="footer-item">                        
+                                <a href="tel:<?php echo esc_attr($phone_href); ?>">                        
+                                    <?php echo esc_html($phone); ?>                        
+                                </a>                        
+                            </li>
+                        <?php endif; ?>
+                        <!-- Email -->
+                        <?php 
+                        $email = get_field('company_email', 'option');
+                        if ($email) {
+                            ?>
+                            <li class="footer-item"><?php echo esc_html($email) ?></li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </navbar>
             </div>

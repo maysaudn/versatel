@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 // Create custom field group for CTA component, one per page it may be on
-function nmca_get_cta_fields ($template = 'page-about.php') {
+function nmca_get_cta_fields($template = 'page-about.php')
+{
   $array = array(
     'key' => 'group_cta_' . $template,
     'title' => 'Call To Action',
@@ -75,21 +76,22 @@ function nmca_get_cta_fields ($template = 'page-about.php') {
 }
 
 // Create custom field group for hero section
-function nmca_get_hero_fields () {
+function nmca_get_hero_fields()
+{
   $array = array(
     'key' => 'group_hero',
     'title' => 'Hero',
-    'fields' => array (
-      array (
-      'key' => 'field_hero_image',
-      'label' => 'Hero Image',
-      'name' => 'hero_image',
-      'type' => 'image',
-      'return_format' => 'array',
-      'instructions' => 'Upload an image to trigger a "Hero" header, with a large image and customizable text. If you don\'t upload an image, then the default Header banner will appear.'
+    'fields' => array(
+      array(
+        'key' => 'field_hero_image',
+        'label' => 'Hero Image',
+        'name' => 'hero_image',
+        'type' => 'image',
+        'return_format' => 'array',
+        'instructions' => 'Upload an image to trigger a "Hero" header, with a large image and customizable text. If you don\'t upload an image, then the default Header banner will appear.'
       ),
       // Hero title
-      array (
+      array(
         'key' => 'field_hero_title',
         'label' => 'Hero Title',
         'name' => 'hero_title',
@@ -97,21 +99,21 @@ function nmca_get_hero_fields () {
         'instructions' => 'This can be the title of your page or anything you want.'
       ),
       // Hero Subtitle
-      array (
+      array(
         'key' => 'field_hero_subtitle',
         'label' => 'Hero Subtitle',
         'name' => 'hero_subtitle',
         'type' => 'textarea',
       ),
       // Hero button
-      array (
+      array(
         'key' => 'field_hero_button',
         'label' => 'Hero Button',
         'name' => 'hero_button',
         'type' => 'text',
       ),
       // Hero button caption
-      array (
+      array(
         'key' => 'field_hero_button_caption',
         'label' => 'Hero Button Caption',
         'name' => 'hero_button_caption',
@@ -136,7 +138,58 @@ function nmca_get_hero_fields () {
   return $array;
 }
 
-function nmca_add_acf_field_groups () {
+function nmca_get_site_settings_fields()
+{
+  return array(
+    'key' => 'group_site_settings',
+    'title' => 'Site Settings',
+    'fields' => array(
+      array(
+        'key' => 'field_company_phone',
+        'label' => 'Company Phone',
+        'name' => 'company_phone',
+        'type' => 'text',
+      ),
+      array(
+        'key' => 'field_company_email',
+        'label' => 'Company Email',
+        'name' => 'company_email',
+        'type' => 'email',
+      ),
+      array(
+        'key' => 'field_company_address',
+        'label' => 'Company Address',
+        'name' => 'company_address',
+        'type' => 'address'
+      ),
+      array(
+        'key' => 'field_booking_url',
+        'label' => 'Booking URL',
+        'name' => 'booking_url',
+        'type' => 'url',
+      ),
+      array(
+        'key' => 'field_portal_url',
+        'label' => 'Portal URL',
+        'name' => 'portal_url',
+        'type' => 'url',
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'options_page',
+          'operator' => '==',
+          'value' => 'site-settings',
+        ),
+      ),
+    ),
+  );
+
+}
+
+function nmca_add_acf_field_groups()
+{
   if (!function_exists('acf_add_local_field_group')) {
     return;
   }
@@ -149,6 +202,13 @@ function nmca_add_acf_field_groups () {
   // Add Hero Fields
   acf_add_local_field_group(
     nmca_get_hero_fields()
+  );
+
+  // Add site settings
+
+
+  acf_add_local_field_group(
+    nmca_get_site_settings_fields()
   );
 }
 
