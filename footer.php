@@ -4,27 +4,17 @@
                 <h4 id="footer-contact-title">Contact Us</h4>
                 <navbar class="footer-menu">
                     <ul class="footer-contact">
-                        <!-- Phone Number -->
+                        <!-- Site Settings -->
                         <?php 
-                        $phone = get_field('company_phone', 'option');
-                        if ($phone) :                       
-                            $phone_href = preg_replace('/\D+/', '', $phone);                       
-                        ?>
-                            <li class="footer-item">                        
-                                <a href="tel:<?php echo esc_attr($phone_href); ?>">                        
-                                    <?php echo esc_html($phone); ?>                        
-                                </a>                        
-                            </li>
-                        <?php endif; ?>
-                        <!-- Email -->
-                        <?php 
-                        $email = get_field('company_email', 'option');
-                        if ($email) {
-                            ?>
-                            <li class="footer-item"><?php echo esc_html($email) ?></li>
-                            <?php
-                        }
-                        ?>
+                        foreach (nmca_get_theme_settings() as $key => $setting) :
+                        if (empty($setting['footer'])) { continue; }
+                        if (!nmca_setting($key)) { continue; } ?>
+
+                        <li class="footer-item">
+                            <?php nmca_render_setting($key, $setting); ?>
+                        </li>
+
+                        <?php endforeach; ?>
                     </ul>
                 </navbar>
             </div>

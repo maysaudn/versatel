@@ -737,6 +737,16 @@ display: none
   box-shadow: var(--box-shadow);
 }
 
+.contact-card a {
+  color: var(--accent2);
+  text-decoration: none;
+}
+
+.contact-card a:hover,
+.contact-card a:focus {
+  text-decoration: underline;
+}
+
 .contact-card span {
   display: flex;              /* aligns icon + text */
   align-items: center;

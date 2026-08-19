@@ -12,9 +12,31 @@
 <!-- CONTACT CARD -->
 
 <div class="contact-card">
-  <span><i class="fa fa-phone"></i> ###-###-####</span>
-  <span><i class="fa fa-envelope"></i> info@versatelsolutions.com</span>
-  <span><i class="fa fa-clock-o"></i> open during regular business hours</span>
+
+    <span>
+
+        <i class="fa fa-phone"></i>
+
+        <?php nmca_render_setting('company_phone'); ?>
+
+    </span>
+
+    <span>
+
+        <i class="fa fa-envelope"></i>
+
+        <?php nmca_render_setting('company_email'); ?>
+
+    </span>
+
+    <span>
+
+        <i class="fa fa-clock-o"></i>
+
+        open during regular business hours
+
+    </span>
+
 </div>
 
 <!-- FOOTER -->
