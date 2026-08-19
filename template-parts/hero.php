@@ -1,17 +1,11 @@
 <?php
-$hero_image_url = !empty($args['image'])
-  ? $args['image']
-  : get_template_directory_uri() . '/images/default-hero.jpg';
 
-$hero_text = !empty($args['title'])
-  ? $args['title']
-  : get_the_title();
+$hero_image_url = $args['image'] ?? '';
+$hero_text = $args['title'] ?? get_the_title();
+$hero_subtitle = $args['subtitle'] ?? '';
+$hero_button = $args['button'] ?? '';
+$hero_button_caption = $args['button_caption'] ?? '';
 
-$hero_subtitle = $args['subtitle'];
-
-$hero_button = $args['button'];
-
-$hero_button_caption = $args['button_caption']
 ?>
 
 <section class="hero" style="background-image: url('<?php echo esc_url($hero_image_url); ?>');">

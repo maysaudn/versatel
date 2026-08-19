@@ -60,9 +60,11 @@ function nmca_enqueue_footer() {
 
 add_action('wp_enqueue_scripts', 'nmca_enqueue_footer');
 
-// VERSATEL FEATURES
+// THEME FEATURES
 function versatel_features() {
     add_theme_support('title-tag');
+    add_theme_support('wp-block-styles');
+    add_theme_support('align-wide');
 }
 
 add_action('after_setup_theme', 'versatel_features');
