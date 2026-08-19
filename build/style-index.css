@@ -9,7 +9,7 @@
   --card-radius:12px;
   --gap:24px;
   --font-sans: "Montserrat", sans-serif;
-  --font-serif: "lola", serif;
+  --font-serif: "lora", serif;
   --font-extra-light: 150;
   --font-light: 300;
   --font-medium: 400;
@@ -76,7 +76,7 @@ h1 {
 h2 {
   font-weight: var(--font-bold);
   font-size: 1.75rem;
-  font-family: "lora", serif;
+  font-family: var(--font-serif);
 }
 
 @media (min-width: 768px) {
