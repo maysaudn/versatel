@@ -148,6 +148,45 @@ button:active {
   transform: translateY(4px);
 }
 
+/* WordPress Block Buttons */
+
+.generic-content .wp-block-button {
+  display: flex;
+  justify-content: center;
+}
+
+.wp-block-button__link {
+  padding: .75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: var(--font-medium);
+  background-color: var(--primary);
+  color: var(--muted);
+  border: 1px solid var(--primary);
+  border-radius: var(--card-radius);
+  text-decoration: none;
+  transition: .15s;
+}
+
+.wp-block-button__link:hover {
+  background-color: var(--accent2);
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+              0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.wp-block-button__link:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 3px;
+}
+
+.wp-block-button__link,
+.wp-block-button__link:hover,
+.wp-block-button__link:visited {
+  text-decoration: none;
+}
+
 .breadcrumb {
   color: var(--primary-light);
   font-size: smaller;
