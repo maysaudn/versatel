@@ -26,6 +26,30 @@ function nmca_get_theme_settings() {
             'type' => 'url',
             'render' => 'url',
             'footer' => true
+        ],
+        'podcast_rss_url' => [
+            'label'  => 'Podcast RSS Feed',
+            'type'   => 'url',
+            'render' => 'url',
+            'footer' => false
+        ],
+        'podcast_apple_url' => [
+            'label'  => 'Apple Podcasts Link',
+            'type'   => 'url',
+            'render' => 'url',
+            'footer' => false
+        ],
+        'podcast_spotify_url' => [
+            'label'  => 'Spotify Podcast Link',
+            'type'   => 'url',
+            'render' => 'url',
+            'footer' => false
+        ],
+        'podcast_youtube_url' => [
+            'label'  => 'YouTube Podcast Link',
+            'type'   => 'url',
+            'render' => 'url',
+            'footer' => false
         ]
     ];
 }
@@ -46,9 +70,20 @@ add_action('admin_menu', 'nmca_add_theme_settings_page');
 
 function nmca_register_theme_settings() {
     foreach (nmca_get_theme_settings() as $name => $setting) {
+        $sanitize_callback = 'sanitize_text_field';
+
+        if ('email' === $setting['type']) {
+            $sanitize_callback = 'sanitize_email';
+        } elseif ('url' === $setting['type']) {
+            $sanitize_callback = 'esc_url_raw';
+        }
+
         register_setting(
             'nmca_settings_group',
-            $name
+            $name,
+            [
+                'sanitize_callback' => $sanitize_callback,
+            ]
         );
     }
 }
@@ -130,4 +165,3 @@ function nmca_render_setting($key)
     }
 }
 ?>
-
