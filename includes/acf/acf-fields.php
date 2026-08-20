@@ -112,6 +112,15 @@ function nmca_get_hero_fields()
         'name' => 'hero_button',
         'type' => 'text',
       ),
+      // Hero button URL
+      array(
+        'key' => 'field_hero_button_url',
+        'label' => 'Hero Button URL',
+        'name' => 'hero_button_url',
+        'type' => 'url',
+        'default_value' => nmca_setting('booking_url'),
+        'instructions' => 'URL to open when the Hero Button is clicked. Defaults to the Booking URL from Site Settings.'
+      ),
       // Hero button caption
       array(
         'key' => 'field_hero_button_caption',

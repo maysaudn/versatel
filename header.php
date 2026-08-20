@@ -22,7 +22,7 @@
                     <li class="menuItem"><a href="<?php echo site_url('/about'); ?>">About</a></li>
                     <li class="menuItem"><a href="<?php echo site_url('/resources'); ?>">Resources</a></li>
                     <li class="menuItem"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
-                    <li class="menuItem client-portal"><a class="client-portal-text" href=""><i class="fa fa-user"></i> Client Portal</a></li>
+                    <li class="menuItem client-portal"><a href="<?php echo nmca_setting('portal_url'); ?>" class="client-portal-text" target="_blank"><i class="fa fa-user"></i> Client Portal</a></li>
                 </ul>
 
             <div class="hamburger">

@@ -99,12 +99,10 @@ if (!empty($hero_image['url'])) {
 
     <div class="flex-container">
         <blockquote class="flex-item card">
-            <p>“Exceptionally well run and staffed by top-notch providers. If you want a partner that’s honest,
-                qualified, and actually fun to do business with, look no further.”</p>
+            <p>“Exceptionally well run and staffed by top-notch providers. If you want a partner that’s honest, qualified, and actually fun to do business with, look no further.</p>
             <footer>
                 <div class="test-name">
-                    <p><strong>NAME</strong></p>
-                    <p><span>Paradigm Solutions</span></p>
+                    <p><strong>Paradime Solutions</strong></p>
                 </div>
             </footer>
         </blockquote>
@@ -115,7 +113,6 @@ if (!empty($hero_image['url'])) {
             <footer>
                 <div class="test-name">
                     <p><strong>Tracy Dombrowski</strong></p>
-                    <p><span>Title, business</span></p>
                 </div>
             </footer>
         </blockquote>
@@ -127,7 +124,6 @@ if (!empty($hero_image['url'])) {
             <footer>
                 <div class="test-name">
                     <p><strong>Kathryn Fox</strong></p>
-                    <p><span>Title, business</span></p>
                 </div>
     </div>
 </section>
@@ -139,7 +135,11 @@ if (!empty($hero_image['url'])) {
         <p>The next step is a conversation, not a commitment. Thirty minutes where we get to know your business and you
             ask every question on your mind. From there, we’ll tell you honestly where we think you are and whether
             we’re the right fit.</p>
-        <button onclick="window.location.href='<?php echo site_url('/contact'); ?>';">Book a Conversation</button>
+            <a 
+    href="<?php echo esc_url(nmca_setting('booking_url')); ?>" target="_blank" rel="noopener noreferrer"
+            class="button">
+            Book a Consultation
+        </a>
     </div>
 </section>
 
