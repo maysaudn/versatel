@@ -80,6 +80,24 @@ function nmca_enqueue_footer() {
 
 add_action('wp_enqueue_scripts', 'nmca_enqueue_footer');
 
+// PODCAST
+function nmca_enqueue_podcast_styles() {
+    if (!is_page_template('page-podcast.php')) {
+        return;
+    }
+
+    $stylesheet_path = get_theme_file_path('/build/style-podcast.css');
+
+    wp_enqueue_style(
+        'versatel-podcast',
+        get_theme_file_uri('/build/style-podcast.css'),
+        ['versatel_main_styles'],
+        filemtime($stylesheet_path)
+    );
+}
+
+add_action('wp_enqueue_scripts', 'nmca_enqueue_podcast_styles');
+
 // THEME FEATURES
 function versatel_features() {
     add_theme_support('title-tag');
@@ -220,3 +238,5 @@ function nmca_enqueue_fontawesome() {
 // Theme Settings
 require_once get_template_directory() . '/includes/theme-settings.php';
 
+// Podcast Feed
+require_once get_template_directory() . '/includes/podcast-feed.php';
