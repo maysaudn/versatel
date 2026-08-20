@@ -16,22 +16,39 @@
 
             </div>
 
-            <nav>
+            <nav aria-label="<?php esc_attr_e('Primary Navigation', 'versatel'); ?>">
                 <div class="nav-right">
-                    <a href="<?php echo nmca_setting('portal_url'); ?>" class="client-portal-button" target="_blank"><i class="fa fa-user"></i> Client Portal</a>
+                    <a
+                        href="<?php echo esc_url(nmca_setting('portal_url')); ?>"
+                        class="client-portal-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        Client Portal
+                    </a>
 
-                    <ul class="menu menuTransform">
-                        <li class="menuItem"><a href="<?php echo site_url(); ?>">Home</a></li>
-                        <li class="menuItem"><a href="<?php echo site_url('/about'); ?>">About</a></li>
-                        <li class="menuItem"><a href="<?php echo site_url('/resources'); ?>">Resources</a></li>
-                        <li class="menuItem"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
-                        <li class="menuItem client-portal-menu-item"><a href="<?php echo nmca_setting('portal_url'); ?>" target="_blank"><i class="fa fa-user"></i> Client Portal</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'menu_class'     => 'menu menuTransform',
+                        'menu_id'        => 'primary-menu',
+                        'depth'          => 2,
+                        'fallback_cb'    => false,
+                    ]);
+                    ?>
                 </div>
 
-            <div class="hamburger">
-                <i class="menuIcon fa fa-bars"></i>
-                <i class="closeIcon fa fa-close"></i>
-            </div>
-</nav>
+                <button
+                    class="hamburger"
+                    type="button"
+                    aria-controls="primary-menu"
+                    aria-expanded="false"
+                    aria-label="<?php esc_attr_e('Toggle navigation', 'versatel'); ?>"
+                >
+                    <i class="menuIcon fa fa-bars" aria-hidden="true"></i>
+                    <i class="closeIcon fa fa-close" aria-hidden="true"></i>
+                </button>
+            </nav>
 </header>

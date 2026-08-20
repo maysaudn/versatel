@@ -89,11 +89,45 @@ function versatel_features() {
     add_editor_style('build/design-tokens.css');
     add_editor_style('build/editor-style.css');
     register_nav_menus([
-    'primary' => __('Primary Navigation', 'versatel'),
-]);
+        'primary' => __('Primary Navigation', 'versatel'),
+    ]);
 }
 
 add_action('after_setup_theme', 'versatel_features');
+
+// Add Client Portal Menu Item to Primary Navigation for Mobile View
+
+function versatel_add_client_portal_menu_item($items, $args) {
+    if ('primary' !== $args->theme_location) {
+        return $items;
+    }
+
+    $portal_url = nmca_setting('portal_url');
+
+    if (empty($portal_url)) {
+        return $items;
+    }
+
+    $portal_item = sprintf(
+        '<li class="menu-item client-portal-menu-item">
+            <a href="%1$s" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                %2$s
+            </a>
+        </li>',
+        esc_url($portal_url),
+        esc_html__('Client Portal', 'versatel')
+    );
+
+    return $items . $portal_item;
+}
+
+add_filter(
+    'wp_nav_menu_items',
+    'versatel_add_client_portal_menu_item',
+    10,
+    2
+);
 
 // Theme fonts
 
@@ -185,5 +219,4 @@ function nmca_enqueue_fontawesome() {
 
 // Theme Settings
 require_once get_template_directory() . '/includes/theme-settings.php';
-
 
