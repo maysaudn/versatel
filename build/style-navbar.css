@@ -39,6 +39,9 @@
 .hamburger {
     cursor: pointer;
     display: flex;
+    padding: 0;
+    border: 0;
+    background: transparent;
     font-size: 1.5rem;
     color: #fff;
     margin-left: var(--gap);
@@ -70,17 +73,26 @@
     background: var(--primary);
     color: var(--muted);
     list-style: none;
+    overflow-y: auto;
     transform: translateY(-100%);
     transition: transform 0.2s;
 }
 
-.menuItem {
+.menu-item {
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.menuItem a {
+.menu > .menu-item:first-child {
+    margin-top: auto;
+}
+
+.menu > .menu-item:last-child {
+    margin-bottom: auto;
+}
+
+.menu-item a {
     display: inline-block;
     padding: 0.35rem 0.75rem;
     color: var(--muted);
@@ -88,6 +100,26 @@
     font-size: 1.25rem;
     font-weight: var(--font-medium);
     text-decoration: none;
+}
+
+.menu-item-has-children > a::after {
+    content: "\25BE";
+    display: inline-block;
+    margin-left: 0.4rem;
+    font-size: 0.75em;
+}
+
+.sub-menu {
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sub-menu .menu-item a {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .nav-right {
@@ -185,28 +217,63 @@
     .menu {
         position: static;
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: flex-end;
+        gap: clamp(1.9rem, 1vw, 2.5rem);
+        max-width: 65vw;
         transform: none;
         transition: none;
         list-style-type: none;
         margin: 0;
         padding: 0;
         background: transparent;
+        overflow: visible;
     }
 
-    .menuItem {
+    .menu > .menu-item:first-child,
+    .menu > .menu-item:last-child {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .menu > .menu-item {
+        position: relative;
         transition: 0.15s;
         padding-top: 0.25em;
         padding-bottom: 0.25em;
-        padding-left: 2.3em;
+        padding-left: 0;
         padding-right: 0;
     }
 
-    .menuItem:hover {
+    .menu > .menu-item > a {
+        padding: 0.35rem 0;
+        font-size: clamp(1.1rem, 0.8vw, 1.25rem);
+        white-space: nowrap;
+    }
+
+    .menu:has(> .menu-item:nth-child(8)) {
+        gap: clamp(1.25rem, 0.65vw, 2.15rem);
+    }
+
+    .menu:has(> .menu-item:nth-child(8)) > .menu-item > a {
+        font-size: clamp(0.75rem, 0.7vw, 1.25rem);
+    }
+
+    .menu:has(> .menu-item:nth-child(10)) {
+        gap: 0.5rem;
+    }
+
+    .menu:has(> .menu-item:nth-child(10)) > .menu-item > a {
+        font-size: 0.75rem;
+    }
+
+    .menu-item:hover {
         cursor: pointer;
     }
 
-    .menuItem > a {
+    .menu-item > a {
         display: block;
         color: var(--muted);
         text-align: center;
@@ -214,15 +281,57 @@
         text-decoration: none;
     }
 
-    .menuItem > a:hover {
+    .menu-item > a:hover,
+    .menu-item > a:focus-visible {
         color: var(--accent2)
     }
 
-    .menuItem > a:active {
+    .menu-item > a:active {
         border-bottom-style: solid;
         border-bottom-color: var(--accent2);
         border-width: 1px;
         transform: translateY(4px)
+    }
+
+    .menu > .current-menu-item > a,
+    .menu > .current-menu-ancestor > a {
+        color: var(--accent2);
+        border-bottom: 1px solid var(--accent2);
+    }
+
+    .menu-item-has-children > .sub-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 1000;
+        min-width: 13rem;
+        margin: 0;
+        padding: 0.5rem 0;
+        border-radius: 0.5rem;
+        background: var(--primary);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease, visibility 0.15s ease;
+    }
+
+    .menu-item-has-children:hover > .sub-menu,
+    .menu-item-has-children:focus-within > .sub-menu {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .sub-menu .menu-item {
+        width: 100%;
+        padding: 0;
+    }
+
+    .sub-menu .menu-item > a {
+        padding: 0.55rem 1rem;
+        text-align: left;
+        white-space: nowrap;
     }
 
     .hamburger {
