@@ -17,13 +17,17 @@
             </div>
 
             <nav>
-                <ul class="menu menuTransform">
-                    <li class="menuItem"><a href="<?php echo site_url(); ?>">Home</a></li>
-                    <li class="menuItem"><a href="<?php echo site_url('/about'); ?>">About</a></li>
-                    <li class="menuItem"><a href="<?php echo site_url('/resources'); ?>">Resources</a></li>
-                    <li class="menuItem"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
-                    <li class="menuItem client-portal"><a href="<?php echo nmca_setting('portal_url'); ?>" class="client-portal-text" target="_blank"><i class="fa fa-user"></i> Client Portal</a></li>
-                </ul>
+                <div class="nav-right">
+                    <a href="<?php echo nmca_setting('portal_url'); ?>" class="client-portal-button" target="_blank"><i class="fa fa-user"></i> Client Portal</a>
+
+                    <ul class="menu menuTransform">
+                        <li class="menuItem"><a href="<?php echo site_url(); ?>">Home</a></li>
+                        <li class="menuItem"><a href="<?php echo site_url('/about'); ?>">About</a></li>
+                        <li class="menuItem"><a href="<?php echo site_url('/resources'); ?>">Resources</a></li>
+                        <li class="menuItem"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+                        <li class="menuItem client-portal-menu-item"><a href="<?php echo nmca_setting('portal_url'); ?>" target="_blank"><i class="fa fa-user"></i> Client Portal</a></li>
+                    </ul>
+                </div>
 
             <div class="hamburger">
                 <i class="menuIcon fa fa-bars"></i>

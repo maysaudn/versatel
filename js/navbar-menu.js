@@ -6,7 +6,6 @@ const menuIcon = document.querySelector(".menuIcon");
 
 function toggleMenu() {
   if (menu.classList.contains("showMenu")) {
-    console.log('opening menu');
     menu.classList.remove("showMenu");
     closeIcon.style.display = "none";
     menuIcon.style.display = "block";
@@ -18,3 +17,9 @@ function toggleMenu() {
 }
 
 hamburger.addEventListener("click", toggleMenu);
+
+menu.addEventListener("click", (event) => {
+  if (!event.target.closest(".menuItem a")) {
+    toggleMenu();
+  }
+});

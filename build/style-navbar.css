@@ -1,6 +1,5 @@
 .navbar {
     min-height: 95px;
-    min-height: 95px;
     margin: 0;
     padding: 10px 10vw 0 15vw;
     background-color: var(--primary);
@@ -39,40 +38,88 @@
   
 .hamburger {
     cursor: pointer;
-    float: right;
     display: flex;
     font-size: 1.5rem;
     color: #fff;
     margin-left: var(--gap);
+    z-index: 1001;
 }
   
 .closeIcon {
     display: none;
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 1001;
+    color: #fff;
+    font-size: 2rem;
 }
   
   
 .menu {
-  position: fixed;
-  transform: translateY(-100%);
-  transition: transform 0.2s;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  background: var(--primary);
-  color: var(--muted);
-  list-style: none;
-  padding-top: 4rem;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 4rem 1.5rem 2rem;
+    background: var(--primary);
+    color: var(--muted);
+    list-style: none;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+}
+
+.menuItem {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .menuItem a {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
     color: var(--muted);
     text-align: center;
+    font-size: 1.25rem;
     font-weight: var(--font-medium);
     text-decoration: none;
 }
-  
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.client-portal-button {
+    display: none;
+    align-items: center;
+    gap: var(--gap);
+    padding: 0.35em 0.8em;
+    border: 0.15em solid var(--accent2);
+    border-radius: 12px;
+    background-color: var(--accent2);
+    color: var(--primary);
+    font-weight: var(--font-medium);
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: 0.15s;
+    white-space: nowrap;
+}
+
+.client-portal-button:hover {
+    background-color: var(--primary);
+    color: var(--accent2);
+}
+
+.client-portal-menu-item > a {
+    color: var(--accent2);
+}
+
 .showMenu {
     transform: translateY(0);
 }
@@ -116,36 +163,43 @@
         cursor: pointer;
     }
 
+    .nav-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        align-self: stretch;
+        gap: 0.66rem;
+        margin-top: 0.55rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .client-portal-button {
+        display: inline-flex;
+    }
+
+    .client-portal-menu-item {
+        display: none;
+    }
+
     .menu {
-        display: contents;
+        position: static;
+        display: flex;
+        align-items: center;
+        transform: none;
+        transition: none;
         list-style-type: none;
-        float: right;
-        margin-top: 1.4rem;
+        margin: 0;
+        padding: 0;
+        background: transparent;
     }
-
-    .client-portal {
-        border-radius: 12px;
-        border-color: var(--accent2);
-        border-width: 0.15em;
-        background-color: var(--accent2);
-    }
-
-    .client-portal:hover {
-        background-color: var(--primary);
-        a {
-            color: var(--accent2);
-        }
-    }
-    
-    .menuItem > .client-portal-text {
-        color: var(--primary);
-    }
-
 
     .menuItem {
-        float: left;
         transition: 0.15s;
-        padding: 0.25em 1.15em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        padding-left: 2.3em;
+        padding-right: 0;
     }
 
     .menuItem:hover {
@@ -175,4 +229,3 @@
         display: none;
     }
 }
-
