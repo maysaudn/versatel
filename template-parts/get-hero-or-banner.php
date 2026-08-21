@@ -2,10 +2,11 @@
 <?php
 
 $page_id = !empty($args['post_id']) ? absint($args['post_id']) : get_queried_object_id();
+$hero_enabled = (bool) get_field('hero_enabled', $page_id);
 $hero_image = get_field('hero_image', $page_id);
 $title = !empty($args['title']) ? $args['title'] : get_the_title($page_id);
 
-if (!empty($hero_image['url'])) {
+if ($hero_enabled && !empty($hero_image['url'])) {
   $hero_args = array(
     'image' => $hero_image['url'],
     'title' => get_field('hero_title', $page_id),

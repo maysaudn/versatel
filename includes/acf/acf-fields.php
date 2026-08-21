@@ -73,12 +73,31 @@ function nmca_get_hero_fields()
     'title' => 'Hero',
     'fields' => array(
       array(
+        'key' => 'field_hero_enabled',
+        'label' => 'Display Hero',
+        'name' => 'hero_enabled',
+        'type' => 'true_false',
+        'instructions' => 'Enable this option to display the full Hero. When disabled, the standard page banner will appear.',
+        'default_value' => 0,
+        'ui' => 1,
+      ),
+      array(
         'key' => 'field_hero_image',
         'label' => 'Hero Image',
         'name' => 'hero_image',
         'type' => 'image',
         'return_format' => 'array',
-        'instructions' => 'Upload an image to trigger a "Hero" header, with a large image and customizable text. If you don\'t upload an image, then the default Header banner will appear.'
+        'instructions' => 'Upload the background image for the Hero.',
+        'required' => 1,
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_hero_enabled',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
       // Hero title
       array(
@@ -86,7 +105,16 @@ function nmca_get_hero_fields()
         'label' => 'Hero Title',
         'name' => 'hero_title',
         'type' => 'text',
-        'instructions' => 'This can be the title of your page or anything you want.'
+        'instructions' => 'This can be the title of your page or anything you want.',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_hero_enabled',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
       // Hero Subtitle
       array(
@@ -94,6 +122,15 @@ function nmca_get_hero_fields()
         'label' => 'Hero Subtitle',
         'name' => 'hero_subtitle',
         'type' => 'textarea',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_hero_enabled',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
       // Hero button
       array(
@@ -101,6 +138,15 @@ function nmca_get_hero_fields()
         'label' => 'Hero Button',
         'name' => 'hero_button',
         'type' => 'text',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_hero_enabled',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
       // Hero button URL
       array(
@@ -109,14 +155,32 @@ function nmca_get_hero_fields()
         'name' => 'hero_button_url',
         'type' => 'url',
         'default_value' => nmca_setting('booking_url'),
-        'instructions' => 'URL to open when the Hero Button is clicked. Defaults to the Booking URL from Site Settings.'
+        'instructions' => 'URL to open when the Hero Button is clicked. Defaults to the Booking URL from Site Settings.',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_hero_enabled',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
       // Hero button caption
       array(
         'key' => 'field_hero_button_caption',
         'label' => 'Hero Button Caption',
         'name' => 'hero_button_caption',
-        'type' => 'text'
+        'type' => 'text',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_hero_enabled',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       )
     ),
     'location' => array(
