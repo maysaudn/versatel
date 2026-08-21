@@ -72,6 +72,42 @@ function versatel_files() {
 
 add_action('wp_enqueue_scripts', 'versatel_files');
 
+// Use client-facing "Insight" terminology for WordPress posts in the admin UI.
+function versatel_relabel_post_type_as_insights($labels) {
+    $labels->name                     = 'Insights';
+    $labels->singular_name            = 'Insight';
+    $labels->add_new                  = 'Add New';
+    $labels->add_new_item             = 'Add New Insight';
+    $labels->edit_item                = 'Edit Insight';
+    $labels->new_item                 = 'New Insight';
+    $labels->view_item                = 'View Insight';
+    $labels->view_items               = 'View Insights';
+    $labels->search_items             = 'Search Insights';
+    $labels->not_found                = 'No insights found.';
+    $labels->not_found_in_trash       = 'No insights found in Trash.';
+    $labels->all_items                = 'All Insights';
+    $labels->archives                 = 'Insight Archives';
+    $labels->attributes               = 'Insight Attributes';
+    $labels->insert_into_item         = 'Insert into insight';
+    $labels->uploaded_to_this_item    = 'Uploaded to this insight';
+    $labels->filter_items_list        = 'Filter insights list';
+    $labels->items_list_navigation    = 'Insights list navigation';
+    $labels->items_list               = 'Insights list';
+    $labels->item_published           = 'Insight published.';
+    $labels->item_published_privately = 'Insight published privately.';
+    $labels->item_reverted_to_draft   = 'Insight reverted to draft.';
+    $labels->item_scheduled           = 'Insight scheduled.';
+    $labels->item_updated             = 'Insight updated.';
+    $labels->item_link                = 'Insight Link';
+    $labels->item_link_description    = 'A link to an insight.';
+    $labels->menu_name                = 'Insights';
+    $labels->name_admin_bar           = 'Insight';
+
+    return $labels;
+}
+
+add_filter('post_type_labels_post', 'versatel_relabel_post_type_as_insights');
+
 // NAVBAR
 function nmca_enqueue_navbarMenu() {
     $theme_version = wp_get_theme()->get('Version');
