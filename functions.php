@@ -115,6 +115,20 @@ function versatel_enable_page_excerpts() {
 
 add_action('init', 'versatel_enable_page_excerpts', 20);
 
+// The static homepage is assembled by the theme and does not render page content.
+function versatel_hide_front_page_content_editor() {
+    $front_page_id = (int) get_option('page_on_front');
+    $edited_page_id = isset($_GET['post'])
+        ? absint(wp_unslash($_GET['post']))
+        : 0;
+
+    if ($front_page_id && $edited_page_id === $front_page_id) {
+        remove_post_type_support('page', 'editor');
+    }
+}
+
+add_action('admin_init', 'versatel_hide_front_page_content_editor');
+
 // NAVBAR
 function nmca_enqueue_navbarMenu() {
     $theme_version = wp_get_theme()->get('Version');
