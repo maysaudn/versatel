@@ -8,7 +8,10 @@ if (!empty($hero_image['url'])) {
   $hero_args = array(
     'image' => $hero_image['url'],
     'title' => get_field('hero_title'),
-    'subtitle' => get_field('hero_subtitle')
+    'subtitle' => get_field('hero_subtitle'),
+    'button' => get_field('hero_button'),
+    'button_url' => get_field('hero_button_url'),
+    'button_caption' => get_field('hero_button_caption')
   );
 
   get_template_part('template-parts/hero', null, $hero_args); 

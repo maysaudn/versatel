@@ -5,7 +5,9 @@ $hero_text = $args['title'] ?? get_the_title();
 $hero_subtitle = $args['subtitle'] ?? '';
 $hero_button = $args['button'] ?? '';
 $hero_button_caption = $args['button_caption'] ?? '';
-$hero_booking_url = $args['booking_url'] ?? nmca_setting('booking_url');
+$hero_button_url = !empty($args['button_url'])
+  ? $args['button_url']
+  : nmca_setting('booking_url');
 
 ?>
 
@@ -26,7 +28,7 @@ $hero_booking_url = $args['booking_url'] ?? nmca_setting('booking_url');
     <!-- Button Div -->
     <?php 
     if (!empty($hero_button)) {
-      ?><a href="<?php echo esc_url($hero_booking_url); ?>" class="button">Book a Consultation</a><?php
+      ?><a href="<?php echo esc_url($hero_button_url); ?>" class="button"><?php echo esc_html($hero_button); ?></a><?php
       if (!empty($hero_button_caption)) {
         ?><div class="center caption"><em><?php echo esc_html($hero_button_caption) ?></em></div> <?php
       }
