@@ -38,7 +38,7 @@ while (have_posts()) :
 
     <main class="podcast-page">
         <?php if (!empty(trim(wp_strip_all_tags($page_content)))) : ?>
-            <section class="podcast-page-intro container">
+            <section class="podcast-page-intro container generic-content">
                 <?php echo apply_filters('the_content', $page_content); ?>
             </section>
         <?php endif; ?>

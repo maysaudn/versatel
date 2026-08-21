@@ -4,7 +4,7 @@
 <?php get_template_part('template-parts/get-hero-or-banner'); ?>
 
 <!-- THE CONTENT -->
-<section class="container center" id="contact-container">
+<section class="container generic-content" id="contact-container">
     <?php the_content(); ?>
 </section>
 

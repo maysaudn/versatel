@@ -12,7 +12,7 @@ get_header(); ?>
 
 
 <!-- ABOUT CONTENT -->
-<section class="about-content container center">
+<section class="about-content container generic-content">
   <?php the_content(); ?>
 </section>
 

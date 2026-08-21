@@ -86,6 +86,11 @@ body{
   body { font-size: 1.15em; }
 }
 
+/* User-authored page descriptions default to readable left alignment. */
+.generic-content {
+  text-align: left;
+}
+
 /* buttons */
 
 button{
