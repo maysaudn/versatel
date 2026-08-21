@@ -21,7 +21,7 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Heading',
         'name' => 'cta_heading',
         'type' => 'text',
-        'default_value' => 'Ready to learn more?'
+        'instructions' => 'Leave blank to use the default CTA heading from Site Settings.'
       ),
 
       // CTA TEXT
@@ -30,7 +30,7 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Text',
         'name' => 'cta_text',
         'type' => 'text',
-        'default_value' => 'Reach out today for a free consultation!'
+        'instructions' => 'Leave blank to use the default CTA text from Site Settings.'
       ),
 
       // CTA BUTTON
@@ -39,7 +39,7 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Button',
         'name' => 'cta_button',
         'type' => 'text',
-        'default_value' => 'Contact Us'
+        'instructions' => 'Leave blank to use the default CTA button label from Site Settings.'
       ),
 
       // CTA LINK
@@ -48,7 +48,7 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Link',
         'name' => 'cta_link',
         'type' => 'url',
-        'default_value' => get_permalink(get_page_by_path('contact'))
+        'instructions' => 'Leave blank to use the default CTA link from Site Settings.'
       )
     ),
     'location' => array(

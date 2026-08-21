@@ -2,6 +2,9 @@
 
 
 function nmca_get_theme_settings() {
+    $contact_page = get_page_by_path('contact');
+    $default_cta_link = $contact_page ? get_permalink($contact_page) : home_url('/contact/');
+
     return [
         'company_email' => [
             'label' => 'Company Email',
@@ -26,6 +29,38 @@ function nmca_get_theme_settings() {
             'type' => 'url',
             'render' => 'url',
             'footer' => true
+        ],
+        'default_cta_heading' => [
+            'label'       => 'Default CTA Heading',
+            'type'        => 'text',
+            'render'      => 'text',
+            'footer'      => false,
+            'default'     => 'Ready to learn more?',
+            'description' => 'Used when a page does not have a custom CTA heading.'
+        ],
+        'default_cta_text' => [
+            'label'       => 'Default CTA Text',
+            'type'        => 'text',
+            'render'      => 'text',
+            'footer'      => false,
+            'default'     => 'Reach out today for a free consultation!',
+            'description' => 'Used when a page does not have custom CTA text.'
+        ],
+        'default_cta_button' => [
+            'label'       => 'Default CTA Button Label',
+            'type'        => 'text',
+            'render'      => 'text',
+            'footer'      => false,
+            'default'     => 'Contact Us',
+            'description' => 'Used when a page does not have a custom CTA button label.'
+        ],
+        'default_cta_link' => [
+            'label'       => 'Default CTA Link',
+            'type'        => 'url',
+            'render'      => 'url',
+            'footer'      => false,
+            'default'     => $default_cta_link,
+            'description' => 'Used when a page does not have a custom CTA link.'
         ],
         'podcast_rss_url' => [
             'label'  => 'Podcast RSS Feed',
@@ -83,6 +118,7 @@ function nmca_register_theme_settings() {
             $name,
             [
                 'sanitize_callback' => $sanitize_callback,
+                'default'           => $setting['default'] ?? '',
             ]
         );
     }
@@ -110,8 +146,11 @@ function nmca_render_settings_page() {
                         <input
                             type="<?php echo esc_attr($setting['type']); ?>"
                             name="<?php echo esc_attr($name); ?>"
-                            value="<?php echo esc_attr(get_option($name)); ?>"
+                            value="<?php echo esc_attr(nmca_setting($name, $setting['default'] ?? '')); ?>"
                             class="regular-text">
+                        <?php if (!empty($setting['description'])) : ?>
+                            <p class="description"><?php echo esc_html($setting['description']); ?></p>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
