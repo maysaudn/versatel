@@ -219,7 +219,9 @@ function versatel_features() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
     register_nav_menus([
-        'primary' => __('Primary Navigation', 'versatel'),
+        'primary'          => __('Primary Navigation', 'versatel'),
+        'footer_resources' => __('Resources', 'versatel'),
+        'footer_legal'     => __('Legal', 'versatel'),
     ]);
 }
 
@@ -257,6 +259,41 @@ add_filter(
     'versatel_add_client_portal_menu_item',
     10,
     2
+);
+
+// Preserve the footer's existing list-item styling on WordPress menu items.
+function versatel_add_footer_menu_item_class($classes, $menu_item, $args) {
+    $footer_locations = array('footer_resources', 'footer_legal');
+
+    if (in_array($args->theme_location, $footer_locations, true)) {
+        $classes[] = 'footer-item';
+    }
+
+    return $classes;
+}
+
+add_filter('nav_menu_css_class', 'versatel_add_footer_menu_item_class', 10, 3);
+
+// Keep footer links visually isolated from the primary navigation link styles.
+function versatel_add_footer_menu_link_class($attributes, $menu_item, $args) {
+    $footer_locations = array('footer_resources', 'footer_legal');
+
+    if (in_array($args->theme_location, $footer_locations, true)) {
+        $existing_classes = isset($attributes['class'])
+            ? trim($attributes['class']) . ' '
+            : '';
+
+        $attributes['class'] = $existing_classes . 'footer-item-link';
+    }
+
+    return $attributes;
+}
+
+add_filter(
+    'nav_menu_link_attributes',
+    'versatel_add_footer_menu_link_class',
+    10,
+    3
 );
 
 // Theme fonts

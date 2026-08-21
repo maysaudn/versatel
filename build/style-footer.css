@@ -38,9 +38,29 @@
     color: inherit
 }
 
+.footer-item > .footer-item-link {
+    display: block;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-align: left;
+    text-decoration: none;
+}
+
 .footer-item a:hover {
     cursor: pointer;
     color: var(--accent2);
+}
+
+.footer-item > .footer-item-link:hover,
+.footer-item > .footer-item-link:focus-visible {
+    color: var(--accent2);
+}
+
+.footer-item > .footer-item-link:focus-visible {
+    outline: 2px solid var(--accent2);
+    outline-offset: 3px;
 }
 
 .footer-item a:active {
