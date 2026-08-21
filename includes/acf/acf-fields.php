@@ -52,29 +52,11 @@ function nmca_get_cta_fields($template = 'page-about.php')
       )
     ),
     'location' => array(
-      // Group 1: All post types except attachments and team members
-      array(
-        array(
-          'param' => 'post_type',
-          'operator' => '!=',
-          'value' => 'attachment'
-        ),
-        array(
-          'param' => 'post_type',
-          'operator' => '!=',
-          'value' => 'team_member'
-        ),
-      ),
       array(
         array(
           'param' => 'post_type',
           'operator' => '==',
           'value' => 'page'
-        ),
-        array(
-          'param' => 'page_template',
-          'operator' => '==',
-          'value' => $template
         )
       )
     )
@@ -141,13 +123,8 @@ function nmca_get_hero_fields()
       array(
         array(
           'param' => 'post_type',
-          'operator' => '!=',
-          'value' => 'attachment'
-        ),
-        array(
-          'param' => 'post_type',
-          'operator' => '!=',
-          'value' => 'team_member'
+          'operator' => '==',
+          'value' => 'page'
         ),
       )
     )

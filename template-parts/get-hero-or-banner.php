@@ -1,17 +1,18 @@
 <!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
-<?php 
+<?php
 
-$hero_image = get_field('hero_image');
-$title = !empty($args['title']) ? $args['title'] : '';
+$page_id = !empty($args['post_id']) ? absint($args['post_id']) : get_queried_object_id();
+$hero_image = get_field('hero_image', $page_id);
+$title = !empty($args['title']) ? $args['title'] : get_the_title($page_id);
 
 if (!empty($hero_image['url'])) {
   $hero_args = array(
     'image' => $hero_image['url'],
-    'title' => get_field('hero_title'),
-    'subtitle' => get_field('hero_subtitle'),
-    'button' => get_field('hero_button'),
-    'button_url' => get_field('hero_button_url'),
-    'button_caption' => get_field('hero_button_caption')
+    'title' => get_field('hero_title', $page_id),
+    'subtitle' => get_field('hero_subtitle', $page_id),
+    'button' => get_field('hero_button', $page_id),
+    'button_url' => get_field('hero_button_url', $page_id),
+    'button_caption' => get_field('hero_button_caption', $page_id)
   );
 
   get_template_part('template-parts/hero', null, $hero_args); 

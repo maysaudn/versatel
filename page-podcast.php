@@ -177,7 +177,12 @@ while (have_posts()) :
     </main>
 
     <?php
+    if (get_field('cta_enabled')) {
+        get_template_part('template-parts/cta');
+    }
+    ?>
+
+    <?php
 endwhile;
 
 get_footer();
-

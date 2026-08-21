@@ -1,8 +1,9 @@
 <?php
-$cta_heading = get_field('cta_heading') ?: 'Ready to learn more?';
-$cta_text = get_field('cta_text') ?: 'Reach out today for a free consultation!';
-$cta_button = get_field('cta_button') ?: 'Contact Us';
-$cta_link = get_field('cta_link') ?: get_permalink(get_page_by_path('contact'));
+$page_id = !empty($args['post_id']) ? absint($args['post_id']) : get_queried_object_id();
+$cta_heading = get_field('cta_heading', $page_id) ?: 'Ready to learn more?';
+$cta_text = get_field('cta_text', $page_id) ?: 'Reach out today for a free consultation!';
+$cta_button = get_field('cta_button', $page_id) ?: 'Contact Us';
+$cta_link = get_field('cta_link', $page_id) ?: get_permalink(get_page_by_path('contact'));
 ?>
 
 <section class="cta-section">

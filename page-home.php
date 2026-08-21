@@ -1,25 +1,7 @@
 <?php get_header(); ?>
 
 <!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
-<?php
-
-$hero_image = get_field('hero_image');
-
-if (!empty($hero_image['url'])) {
-    $hero_args = array(
-        'image' => $hero_image['url'],
-        'title' => get_field('hero_title'),
-        'subtitle' => get_field('hero_subtitle'),
-        'button' => get_field('hero_button'),
-        'button_url' => get_field('hero_button_url'),
-        'button_caption' => get_field('hero_button_caption')
-    );
-
-    get_template_part('template-parts/hero', null, $hero_args);
-} else {
-    get_template_part('template-parts/page-banner');
-}
-?>
+<?php get_template_part('template-parts/get-hero-or-banner'); ?>
 
 
 <!-- INTRO -->
@@ -130,18 +112,10 @@ if (!empty($hero_image['url'])) {
 </section>
 
 <!-- CTA -->
-<section class="cta container">
-    <div class="cta-inner">
-        <h2>Your business is ready for this. So are we.</h2>
-        <p>The next step is a conversation, not a commitment. Thirty minutes where we get to know your business and you
-            ask every question on your mind. From there, we’ll tell you honestly where we think you are and whether
-            we’re the right fit.</p>
-            <a 
-    href="<?php echo esc_url(nmca_setting('booking_url')); ?>" target="_blank" rel="noopener noreferrer"
-            class="button">
-            Book a Consultation
-        </a>
-    </div>
-</section>
+<?php
+if (get_field('cta_enabled')) {
+    get_template_part('template-parts/cta');
+}
+?>
 
 <?php get_footer(); ?>

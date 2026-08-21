@@ -39,5 +39,12 @@
 
 </div>
 
+<!-- CTA -->
+<?php
+if (get_field('cta_enabled')) {
+    get_template_part('template-parts/cta');
+}
+?>
+
 <!-- FOOTER -->
 <?php get_footer(); ?>

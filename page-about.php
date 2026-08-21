@@ -7,25 +7,7 @@ get_header(); ?>
 <?php $team_intro = get_field('team_intro');?>
 
 <!-- HERO OR PAGE BANNER IF NO HERO IMAGE UPLOADED -->
-<?php 
-
-$hero_image = get_field('hero_image');
-
-if (!empty($hero_image['url'])) {
-  $hero_args = array(
-    'image' => $hero_image['url'],
-    'title' => get_field('hero_title'),
-    'subtitle' => get_field('hero_subtitle'),
-    'button' => get_field('hero_button'),
-    'button_url' => get_field('hero_button_url'),
-    'button_caption' => get_field('hero_button_caption')
-  );
-
-  get_template_part('template-parts/hero', null, $hero_args); 
-} else {
-  get_template_part('template-parts/page-banner');
-}
-?>
+<?php get_template_part('template-parts/get-hero-or-banner'); ?>
 
 
 
@@ -48,18 +30,10 @@ if (!empty($hero_image['url'])) {
 </section>
 
 <!-- CTA -->
-
-<?php 
-
-$cta = get_field('cta');
-
-get_template_part('template-parts/cta', null, [
-  'heading' => $cta['cta_heading'] ?? '',
-  'text' => $cta['cta_text'] ?? '',
-  'button' => $cta['cta_button'] ?? '',
-  'link' => $cta['cta_link'] ?? '',
-]);
-
+<?php
+if (get_field('cta_enabled')) {
+  get_template_part('template-parts/cta');
+}
 ?>
 
 <!-- FOOTER -->
