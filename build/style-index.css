@@ -131,7 +131,8 @@ button{
   color: var(--muted);
 }
 
-.button-gold {
+.button.button-gold,
+.button.button-gold:visited {
   color: var(--primary);
   background-color: var(--accent2);
 }
@@ -145,10 +146,11 @@ button:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.button-gold:hover {
-background-color: var(--primary);
-color: var(--primary-light);
-border-color: var(--accent2);
+.button.button-gold:hover,
+.button.button-gold:focus-visible {
+  background-color: var(--primary);
+  color: var(--primary-light);
+  border-color: var(--accent2);
 }
 
 button:active {
