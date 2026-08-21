@@ -7,6 +7,14 @@ function nmca_get_cta_fields($template = 'page-about.php')
     'key' => 'group_cta_' . $template,
     'title' => 'Call To Action',
     'fields' => array(
+      array(
+        'key' => 'field_cta_enabled_page-about.php',
+        'label' => 'Display CTA',
+        'name' => 'cta_enabled',
+        'type' => 'true_false',
+        'default_value' => 0,
+        'ui' => 1,
+      ),
       // CTA HEADING
       array(
         'key' => 'field_cta_heading_' . $template,

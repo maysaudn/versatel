@@ -10,8 +10,8 @@ $cta_link = get_field('cta_link') ?: get_permalink(get_page_by_path('contact'));
     <h2 class="center"><?php echo esc_html($cta_heading); ?></h2>
     <p class="center"><?php echo esc_html($cta_text); ?></p>
 
-    <button onclick="window.location.href='<?php echo $cta_link ?>';" class="cta-button button-gold">
+    <a href="<?php echo esc_url($cta_link); ?>" class="button button-gold">
       <?php echo esc_html($cta_button); ?>
-    </button>
+    </a>
   </div>
 </section>
