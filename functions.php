@@ -108,6 +108,13 @@ function versatel_relabel_post_type_as_insights($labels) {
 
 add_filter('post_type_labels_post', 'versatel_relabel_post_type_as_insights');
 
+// Allow page editors to provide concise summaries for Resources cards.
+function versatel_enable_page_excerpts() {
+    add_post_type_support('page', 'excerpt');
+}
+
+add_action('init', 'versatel_enable_page_excerpts', 20);
+
 // NAVBAR
 function nmca_enqueue_navbarMenu() {
     $theme_version = wp_get_theme()->get('Version');

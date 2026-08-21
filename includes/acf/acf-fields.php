@@ -320,6 +320,96 @@ function nmca_get_site_settings_fields()
 
 }
 
+function nmca_get_resources_page_id()
+{
+  $resources_pages = get_posts(
+    array(
+      'post_type' => 'page',
+      'post_status' => array('publish', 'draft', 'private'),
+      'posts_per_page' => 1,
+      'fields' => 'ids',
+      'meta_key' => '_wp_page_template',
+      'meta_value' => 'page-resources.php',
+      'no_found_rows' => true,
+    )
+  );
+
+  if ($resources_pages) {
+    return (int) $resources_pages[0];
+  }
+
+  $resources_page = get_page_by_path('resources');
+
+  return $resources_page ? (int) $resources_page->ID : 0;
+}
+
+function nmca_get_resource_collection_fields($resources_page_id)
+{
+  $location_rules = array(
+    array(
+      'param' => 'page_parent',
+      'operator' => '==',
+      'value' => (string) $resources_page_id,
+    ),
+  );
+
+  $insights_page_id = (int) get_option('page_for_posts');
+
+  if ($insights_page_id) {
+    $location_rules[] = array(
+      'param' => 'page',
+      'operator' => '!=',
+      'value' => (string) $insights_page_id,
+    );
+  }
+
+  return array(
+    'key' => 'group_resource_collection',
+    'title' => 'Resource Collection',
+    'fields' => array(
+      array(
+        'key' => 'field_resource_collection_post_type',
+        'label' => 'Collection Source',
+        'name' => 'resource_collection_post_type',
+        'type' => 'select',
+        'instructions' => 'Select a collection to display its three newest published items on the Resources page. Leave unselected for a regular resource page.',
+        'choices' => array(),
+        'allow_null' => 1,
+        'ui' => 1,
+        'return_format' => 'value',
+      ),
+    ),
+    'location' => array($location_rules),
+  );
+}
+
+function nmca_load_resource_collection_choices($field)
+{
+  $field['choices'] = array();
+  $post_types = get_post_types(
+    array(
+      'public' => true,
+      'show_ui' => true,
+    ),
+    'objects'
+  );
+
+  foreach ($post_types as $post_type) {
+    if (in_array($post_type->name, array('post', 'page', 'attachment'), true)) {
+      continue;
+    }
+
+    $field['choices'][$post_type->name] = $post_type->labels->name;
+  }
+
+  return $field;
+}
+
+add_filter(
+  'acf/load_field/key=field_resource_collection_post_type',
+  'nmca_load_resource_collection_choices'
+);
+
 function nmca_add_acf_field_groups()
 {
   if (!function_exists('acf_add_local_field_group')) {
@@ -342,6 +432,14 @@ function nmca_add_acf_field_groups()
   acf_add_local_field_group(
     nmca_get_site_settings_fields()
   );
+
+  $resources_page_id = nmca_get_resources_page_id();
+
+  if ($resources_page_id) {
+    acf_add_local_field_group(
+      nmca_get_resource_collection_fields($resources_page_id)
+    );
+  }
 }
 
 add_action('acf/init', 'nmca_add_acf_field_groups');
