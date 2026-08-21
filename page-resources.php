@@ -10,14 +10,17 @@ while (have_posts()) {
 
     $resources_page_id = get_the_ID();
     $insights_page_id = (int) get_option('page_for_posts');
+    $resources_intro = get_the_content();
 
     get_template_part('template-parts/get-hero-or-banner');
     ?>
 
     <main class="resources-hub">
-        <div class="container page-section generic-content resources-hub__intro">
-            <?php the_content(); ?>
-        </div>
+        <?php if (!empty(trim(wp_strip_all_tags($resources_intro)))) : ?>
+            <div class="container page-section generic-content resources-hub__intro">
+                <?php echo apply_filters('the_content', $resources_intro); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </div>
+        <?php endif; ?>
 
         <?php
         $resource_pages = get_pages(
@@ -80,7 +83,7 @@ while (have_posts()) {
                     ?>
 
                     <section class="resource-section" aria-labelledby="resource-<?php echo esc_attr($resource_page->ID); ?>-title">
-                        <div class="resource-section__summary">
+                        <div class="resource-section__summary<?php echo has_post_thumbnail($resource_page) ? ' resource-section__summary--with-image' : ''; ?>">
                             <?php if (has_post_thumbnail($resource_page)) : ?>
                                 <a href="<?php echo esc_url(get_permalink($resource_page)); ?>" class="resource-section__image">
                                     <?php echo get_the_post_thumbnail($resource_page, 'medium_large'); ?>

@@ -165,6 +165,22 @@ function nmca_enqueue_podcast_styles() {
 
 add_action('wp_enqueue_scripts', 'nmca_enqueue_podcast_styles');
 
+// RESOURCES
+function nmca_enqueue_resources_styles() {
+    if (!is_page_template('page-resources.php')) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'versatel-resources',
+        get_theme_file_uri('/build/style-resources.css'),
+        array('versatel_main_styles'),
+        wp_get_theme()->get('Version')
+    );
+}
+
+add_action('wp_enqueue_scripts', 'nmca_enqueue_resources_styles');
+
 // THEME FEATURES
 function versatel_features() {
     add_theme_support('title-tag');
