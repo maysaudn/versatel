@@ -7,23 +7,41 @@ $default_text = nmca_setting('default_cta_text') ?: 'Reach out today for a free 
 $default_button = nmca_setting('default_cta_button') ?: 'Contact Us';
 $default_link = nmca_setting('default_cta_link') ?: $fallback_link;
 
-$cta_heading = get_field('cta_heading', $page_id)
-  ?: $default_heading;
-$cta_text = get_field('cta_text', $page_id)
-  ?: $default_text;
-$cta_button = get_field('cta_button', $page_id)
-  ?: $default_button;
-$cta_link = get_field('cta_link', $page_id)
-  ?: $default_link;
+$cta_customized = (bool) get_field('cta_customized', $page_id);
+
+if ($cta_customized) {
+  $cta_heading = get_field('cta_heading', $page_id);
+  $cta_text = get_field('cta_text', $page_id);
+  $cta_button = get_field('cta_button', $page_id);
+  $cta_link = get_field('cta_link', $page_id);
+} else {
+  $cta_heading = $default_heading;
+  $cta_text = $default_text;
+  $cta_button = $default_button;
+  $cta_link = $default_link;
+}
+
+$show_button = !empty($cta_button) && !empty($cta_link);
+
+if (empty($cta_heading) && empty($cta_text) && !$show_button) {
+  return;
+}
 ?>
 
 <section class="cta-section">
   <div class="container center no-margin">
-    <h2 class="center"><?php echo esc_html($cta_heading); ?></h2>
-    <p class="center"><?php echo esc_html($cta_text); ?></p>
+    <?php if (!empty($cta_heading)) : ?>
+      <h2 class="center"><?php echo esc_html($cta_heading); ?></h2>
+    <?php endif; ?>
 
-    <a href="<?php echo esc_url($cta_link); ?>" class="button button-gold">
-      <?php echo esc_html($cta_button); ?>
-    </a>
+    <?php if (!empty($cta_text)) : ?>
+      <p class="center"><?php echo esc_html($cta_text); ?></p>
+    <?php endif; ?>
+
+    <?php if ($show_button) : ?>
+      <a href="<?php echo esc_url($cta_link); ?>" class="button button-gold">
+        <?php echo esc_html($cta_button); ?>
+      </a>
+    <?php endif; ?>
   </div>
 </section>

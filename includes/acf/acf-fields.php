@@ -15,13 +15,45 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'default_value' => 0,
         'ui' => 1,
       ),
+      array(
+        'key' => 'field_cta_customized_' . $template,
+        'label' => 'Customize CTA for this page?',
+        'name' => 'cta_customized',
+        'type' => 'true_false',
+        'instructions' => 'Enable this option to replace the Site Settings defaults with page-specific CTA content.',
+        'default_value' => 0,
+        'ui' => 1,
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_cta_enabled_page-about.php',
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
+      ),
       // CTA HEADING
       array(
         'key' => 'field_cta_heading_' . $template,
         'label' => 'CTA Heading',
         'name' => 'cta_heading',
         'type' => 'text',
-        'instructions' => 'Leave blank to use the default CTA heading from Site Settings.'
+        'instructions' => 'Leave blank to omit the heading from this page\'s CTA.',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_cta_enabled_page-about.php',
+              'operator' => '==',
+              'value' => '1',
+            ),
+            array(
+              'field' => 'field_cta_customized_' . $template,
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
 
       // CTA TEXT
@@ -30,7 +62,21 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Text',
         'name' => 'cta_text',
         'type' => 'text',
-        'instructions' => 'Leave blank to use the default CTA text from Site Settings.'
+        'instructions' => 'Leave blank to omit the supporting text from this page\'s CTA.',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_cta_enabled_page-about.php',
+              'operator' => '==',
+              'value' => '1',
+            ),
+            array(
+              'field' => 'field_cta_customized_' . $template,
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
 
       // CTA BUTTON
@@ -39,7 +85,21 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Button',
         'name' => 'cta_button',
         'type' => 'text',
-        'instructions' => 'Leave blank to use the default CTA button label from Site Settings.'
+        'instructions' => 'Leave blank to omit the button from this page\'s CTA.',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_cta_enabled_page-about.php',
+              'operator' => '==',
+              'value' => '1',
+            ),
+            array(
+              'field' => 'field_cta_customized_' . $template,
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       ),
 
       // CTA LINK
@@ -48,7 +108,21 @@ function nmca_get_cta_fields($template = 'page-about.php')
         'label' => 'CTA Link',
         'name' => 'cta_link',
         'type' => 'url',
-        'instructions' => 'Leave blank to use the default CTA link from Site Settings.'
+        'instructions' => 'Required for the custom CTA button to appear.',
+        'conditional_logic' => array(
+          array(
+            array(
+              'field' => 'field_cta_enabled_page-about.php',
+              'operator' => '==',
+              'value' => '1',
+            ),
+            array(
+              'field' => 'field_cta_customized_' . $template,
+              'operator' => '==',
+              'value' => '1',
+            ),
+          ),
+        ),
       )
     ),
     'location' => array(
