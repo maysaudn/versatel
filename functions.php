@@ -106,6 +106,21 @@ function versatel_features() {
     add_theme_support('editor-styles');
     add_editor_style('build/design-tokens.css');
     add_editor_style('build/editor-style.css');
+    add_theme_support('woocommerce', [
+        'thumbnail_image_width' => 400,
+        'single_image_width'    => 800,
+        'product_grid'          => [
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 8,
+            'default_columns' => 3,
+            'min_columns'     => 2,
+            'max_columns'     => 4,
+        ],
+    ]);
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
     register_nav_menus([
         'primary' => __('Primary Navigation', 'versatel'),
     ]);
