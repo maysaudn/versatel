@@ -1,5 +1,7 @@
 <?php 
 function enqueue_swiper_assets() {
+    $theme_version = wp_get_theme()->get('Version');
+
     // Swiper CSS
     wp_enqueue_style(
         'swiper-css',
@@ -22,7 +24,7 @@ function enqueue_swiper_assets() {
         'team-swiper',
         get_template_directory_uri() . '/js/team-swiper.js',
         [],
-        null,
+        $theme_version,
         true
     );
 }
@@ -31,24 +33,32 @@ add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
 
 // VERSATEL FILES
 function versatel_files() {
+    $theme_version = wp_get_theme()->get('Version');
+
     wp_enqueue_script(
         'main-versatel-js', 
         get_theme_file_uri('/build/index.js'), 
         array('jquery'), 
-        '1.0', 
+        $theme_version,
         true
     ); // array can be null if not using jquery
     wp_enqueue_style(
         'versatel-design-tokens',
-        get_theme_file_uri('/build/design-tokens.css')
+        get_theme_file_uri('/build/design-tokens.css'),
+        array(),
+        $theme_version
     );
     wp_enqueue_style(
         'versatel_main_styles', 
-        get_theme_file_uri('/build/style-index.css')
+        get_theme_file_uri('/build/style-index.css'),
+        array('versatel-design-tokens'),
+        $theme_version
         );
     wp_enqueue_style(
         'versatel_browser_styles', 
-        get_theme_file_uri('/build/index.css')
+        get_theme_file_uri('/build/index.css'),
+        array(),
+        $theme_version
     );
     wp_enqueue_style(
         'font-awesome', 
@@ -64,9 +74,20 @@ add_action('wp_enqueue_scripts', 'versatel_files');
 
 // NAVBAR
 function nmca_enqueue_navbarMenu() {
-    wp_enqueue_style('style-navbar', get_theme_file_uri( '/build/style-navbar.css' ));
+    $theme_version = wp_get_theme()->get('Version');
+
+    wp_enqueue_style(
+        'style-navbar',
+        get_theme_file_uri('/build/style-navbar.css'),
+        array('versatel-design-tokens'),
+        $theme_version
+    );
     wp_enqueue_script(
-        'navbar-menu', get_template_directory_uri(  ) . '/js/navbar-menu.js', [], null, true
+        'navbar-menu',
+        get_template_directory_uri() . '/js/navbar-menu.js',
+        array(),
+        $theme_version,
+        true
     );
 }
 
@@ -75,7 +96,12 @@ add_action('wp_enqueue_scripts', 'nmca_enqueue_navbarMenu');
 // FOOTER 
 
 function nmca_enqueue_footer() {
-    wp_enqueue_style( 'style-footer', get_theme_file_uri( '/build/style-footer.css' ) );
+    wp_enqueue_style(
+        'style-footer',
+        get_theme_file_uri('/build/style-footer.css'),
+        array('versatel-design-tokens'),
+        wp_get_theme()->get('Version')
+    );
 }
 
 add_action('wp_enqueue_scripts', 'nmca_enqueue_footer');
@@ -86,13 +112,11 @@ function nmca_enqueue_podcast_styles() {
         return;
     }
 
-    $stylesheet_path = get_theme_file_path('/build/style-podcast.css');
-
     wp_enqueue_style(
         'versatel-podcast',
         get_theme_file_uri('/build/style-podcast.css'),
         ['versatel_main_styles'],
-        filemtime($stylesheet_path)
+        wp_get_theme()->get('Version')
     );
 }
 
@@ -230,7 +254,7 @@ function enqueue_team_modal_script() {
         'team-modal-js',
         get_template_directory_uri() . '/js/team-modal.js', 
         [],
-        null,
+        wp_get_theme()->get('Version'),
         true
     );
 }
